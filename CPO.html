@@ -2107,7 +2107,7 @@ body.js .rv.in{opacity:1;transform:none}
   <div id="chainFlow"></div>
 
   <div class="callout rv"><span class="cl-k">觀察雷達</span>
-    尚未成卡、但已被點名的台廠：<b>聯發科(2454)</b>＝SiPhIA 矽光子聯盟成員、潛在 CPO ASIC 設計者；<b>廣達(2382)</b>＝SiPhIA 成員（另有一文稱其供 FAU 子模組，待證）；<b>欣興(3037)</b>＝CoWoS-L 載板受惠；<b>雙鴻(3324)</b>＝散熱；<b>華通(2313)/先豐(8183)</b>＝InP 鏈 PCB；<b>新唐(4919)</b>＝Tower 日本矽光產能夥伴；<b>和碩(4938)</b>＝Computex 光通訊展出；<b>鴻騰 FIT(6088.HK)</b>＝POET 光引擎導入。陸系上游：源傑(688498) CW 雷射、光迅(002281) 自研 EML。
+    尚未成卡、但已被點名的台廠：<b>聯發科(2454)</b>＝SiPhIA 成員，<b>已有 CPO ASIC 平台</b>（XPU-to-XPU 互連、宣稱系統功耗降 50%）、2026/2 以 9,000 萬美元入股矽光新創 Ayar Labs（約 2.4%）、與鴻騰合作 CPO；<b>欣興(3037)</b>＝CoWoS 用 <b>ABF 載板</b>供應商（非 CoWoS-L 本身，L 指台積自製的 LSI）＋<b>光模組 HDI 板為第二成長引擎</b>（客戶訂單年增 2~3 倍、下半年擴產 40~50%）；<b>廣達(2382)</b>＝SiPhIA 成員、AI 伺服器／交換器 ODM（<b>「供 FAU 子模組」查無佐證，已移除</b>；台廠 FAU 實為上詮／波若威／合聖）；<b>雙鴻(3324)</b>＝AI 伺服器液冷（水冷板／CDU，<b>無 CPO 專屬業務，屬間接受惠</b>）；<b>華通(2313)</b>＝AI 資料中心<b>光收發模組板</b>＋低軌衛星板（目標 2027 非消費性業務占比過半）；<b>鴻騰 FIT(6088.HK)</b>＝POET 光引擎導入。陸系上游：<b>源杰科技(688498.SH)</b>＝雷射晶片 IDM，大功率 CW 為矽光方案核心（<b>注意：與台股源傑 7917 完全不同</b>，後者是聯鈞子公司、做光模組／AOC）；<b>光迅科技(002281.SZ)</b>＝光晶片垂直整合 IDM，EML 自研中、<b>中低階自給率逾 8 成但高階仍部分外購</b>。
   </div>
 
   <details class="fold rv"><summary><span class="pm"></span>順帶一看：CPO 交換器背後的光纖地獄（Shuffle Box 實照）</summary>
@@ -2428,22 +2428,22 @@ const chain=[
     tech:"6 吋 InP 基板；Coherent 以 3 年約＋2,230 萬美元預付綁定其產能與插隊權；子公司 JinMei 自煉高純度銦。",
     mc:"<b>FY26Q2 營收 $47.6M 創高、InP 單季 $30.7M、毛利率站回 45% 轉盈</b>；backlog 破 $1 億、今年產能目標上修至逾 3 倍",hl:"InP 正式變成 AI 資料中心「搶產能」標的；供給是唯一天花板",src:"https://www.simpletechtrend.com/post/axti-fy2026-q2-earnings-inp-datacenter"}]},
 
- {ic:"i-laser",tt:"雷射光源 / ELS",en:"Laser / External Light Source",ds:"外部雷射光源模組(ELSFP)，把乾淨連續光餵進 PIC。CPO 主流走外置。",
+ {ic:"i-laser",tt:"雷射光源 / ELS",en:"Laser / External Light Source",ds:"外部雷射光源模組(ELSFP)，把乾淨連續光餵進 PIC。CPO 主流走外置。<b>本欄請分兩層看</b>：①<b>光源晶片原廠／IDM</b>（自有磊晶＋晶粒＋模組，握定價權）＝Lumentum、Coherent、古河、三菱；②<b>封測代工／模組組裝</b>（雷射晶片多由客戶客供，賺加工費）＝聯鈞；③<b>磊晶／晶粒供應</b>＝聯亞、華星光、宏捷科、光環。三層毛利結構與話語權完全不同。",
   pain:"雷射會發熱、對溫度敏感 → 外置＋可插拔避免燒壞整機；高功率 CW 封裝全面轉 CoS（AlN 固晶），CoS 良率成 ELSFP 出貨瓶頸。下一戰場：光梳 comb 光源 8→16λ（Solinide×NVIDIA、Xscape、Quintessent 尚在原型）。",
   items:[
-   {lead:1,rk:"★台廠",nm:"聯鈞",tk:"3450",cls:"tw",ro:"雷射封裝/光模組組裝測試代工(無自有品牌)。",
+   {lead:1,rk:"★台廠",nm:"聯鈞",tk:"3450",cls:"tw",ro:"<b>【層級②封測代工】</b>雷射封裝／光模組組裝測試代工（無自有品牌、無晶片自製）。",
     tech:"核心 <b>COS 封裝</b>；CPO 定位為 Pluggable 的 ELS/ELSFP 客製化封裝服務，雷射晶片由客戶客供(consign)。",
     mc:"COS 產能 2025 擴逾 5 倍；ELS/ELSFP 量產落 2027 後",hl:"800G 單模驗證符合預期；ELSFP 光學規格未公開",src:"https://blog.fugle.tw/post/earnings-call-3450-2025-11-19"},
    {nm:"華星光",tk:"4979",cls:"tw",ro:"主動元件廠，磊晶到封裝垂直整合。",
     tech:"主力 CW Laser 與 EML；400/800G ZR/ZR+ 高階光模組主力代工(市占逾半，客戶已擴至 3 家 CSP)；CPO 走外置光源(ELS)+高精準光纖對位。",
     mc:"CW Laser 2025 出貨暴增 4 倍；月產能 150萬→300-400萬(2026Q4)→600萬+(2027)",hl:"800G 由聯亞代工、終端 Google(TPU 互連)",src:"https://cmnews.com.tw/article/newsyoudeservetoknow-2301b10d-dfb9-11f0-b5b9-69842633b600"},
-   {nm:"Coherent",tk:"美 COHR",cls:"us",ro:"InP 垂直整合光子大廠。",
+   {nm:"Coherent",tk:"美 COHR",cls:"us",ro:"<b>【層級①IDM 原廠】</b>InP 垂直整合光子大廠（自有磊晶→晶粒→模組）。",
     tech:"高功率 CW DFB 雷射(<b>BH 埋入式異質結構</b>平台)；OFC 2026 展 6.4T socketed CPO+ELS。",
     mc:"400mW/1311nm CW(55°C>400mW、線寬<200kHz)，2026Q3 量產",hl:"NVIDIA 注資 20 億美元＋採購長約；德州 Sherman 6 吋 InP 廠動土（產能規劃 ×4）；以 3 年約＋預付綁 AXT 基板",src:"https://www.coherent.com/news/press-releases/coherent-samples-low-noise-400mw-cw-lasers"},
    {nm:"宏捷科",tk:"8086",cls:"tw",ro:"GaAs 代工跨 InP，1.6T 光模組雷射。",
     tech:"GaAs 代工跨 InP，通過 <b>1.6T 光模組用單通道 200G EML 與 CW 雷射</b>驗證；建 6 吋 InP 產線。",
     mc:"200G EML/CW 雷射 2026Q1 出貨放量",hl:"雷射磊晶新兵",src:"https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=fcbb98f9"},
-   {nm:"Lumentum",tk:"美 LITE",cls:"us",ro:"InP 高功率 CW 雷射 + ELSFP。",
+   {nm:"Lumentum",tk:"美 LITE",cls:"us",ro:"<b>【層級①IDM 原廠】</b>InP 高功率 CW 雷射 + ELSFP（自有 5 座 InP 廠）。",
     tech:"把光源移到面板改善散熱/可維修，多矽光引擎共用集中式光源；具 EML、可調雷射完整 InP 線。",
     mc:"全球唯一量產 200G/lane EML（市占 >40%）；OFC 2026 首展單通道 400G EML；收購 Qorvo 廠當第 5 座 InP 廠（2028 投產）",hl:"NVIDIA 注資 20 億美元、UHP 雷射產能幾乎被包下；InP 產能已為 2023 的 8 倍仍缺 >30%",src:"https://convergedigest.com/ecoc25-lumentum-brings-cpo-ready-elsfp-and-ultra-wide-tunable-lasers-t/"},
    {nm:"古河電工",tk:"日 5801",cls:"jp",ro:"ELS 雷射晶片＋TOSA（CPO 外置光源核心）。",
