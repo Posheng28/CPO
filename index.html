@@ -2629,6 +2629,17 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </div>
   <p class="fn">出處：中信 2026-09-24 九步製程圖（台積電 COUPE）；凱基 2026-04-17 同樣估約 20%。</p>
 
+  <h3 class="sub">FAU 好不好，到封測廠才看得出來<span class="tag-en">WHERE IT'S TESTED</span></h3>
+  <p class="lede">FAU 廠出貨前只能驗零件本身；貼上晶片後損耗多少，要到封測廠的耦合站才第一次量到。上面那個 <b>98%</b> 是封測端的數字。</p>
+  <div class="flow rv">
+    <div class="s"><div class="p">FAU 廠</div><div class="t">出貨檢驗</div><div class="d">光纖位置、端面角度與清潔、每通道插損／回損、冷熱循環</div><div class="d"><span class="chip no">看不到耦合良率</span></div></div>
+    <div class="s"><div class="p">封測進料</div><div class="t">外觀檢查</div><div class="d">AOI 看外觀，挑出好的 FAU 放上治具</div><div class="d"><span class="chip no">看不到</span></div></div>
+    <div class="s"><div class="p">耦合站</div><div class="t">對位、點膠、UV 固化</div><div class="d">六軸機台一邊量插損一邊找最佳位置，定位後點膠固化</div><div class="d"><span class="chip ok">第一次看到</span></div></div>
+    <div class="s"><div class="p">測試站</div><div class="t">光引擎、整顆模組</div><div class="d">Insertion 3 壞的在封裝前丟掉；Insertion 4 才發現就整顆報廢</div><div class="d"><span class="chip ok">最終確認</span></div></div>
+  </div>
+  <div class="note rv"><b>為什麼 FAU 廠看不到：</b>貼上之後的損耗還取決於晶片波導的光斑大小、次微米的對位誤差、UV 固化時膠收縮造成的偏移。所以 FAU 廠出貨良率漂亮，不等於 CPO 良率好；客戶真正在意的是 FAU 精度和耦合機台（機台與各道測試見第 07 章）。</div>
+  <p class="fn">出處：元大 2026-09-03 SEMICON 參展摘要 p.5（萬潤 FAU 耦合流程）；福邦 2026-06 p.20（Insertion 1–5 分段）；中信 2026-09-24（每顆 98%）。</p>
+
   <h3 class="sub">把 N 換成真實數字<span class="tag-en">REAL N</span></h3>
   <table class="tbl full rv num">
     <thead><tr><th>每點良率</th><th>32 根<small>一顆光引擎</small></th><th>72 點<small>貼文假設</small></th><th>324 條<small>一顆 ASIC</small></th><th>1,152 根<small>整台交換器</small></th></tr></thead>
