@@ -209,6 +209,15 @@ details[open] .chev{transform:rotate(180deg);color:var(--ink)}
 .sup .mc{font-size:15.5px;margin-top:7px;color:var(--teal-d);border-top:1px dashed var(--rule);padding-top:7px}
 .sup .hl2{font-size:15px;color:var(--green);margin-top:5px;line-height:1.5}
 .sup .src{font-size:12.5px;color:var(--faint);margin-top:6px}
+.sup .hl2.warn{color:#8a5410;background:#fbf6ec;border-left:2px solid var(--amber);padding:6px 9px;margin-top:8px}
+.sups:has(details.more[open]){align-items:start}
+.sup details.more{margin-top:10px}
+.sup details.more>summary{list-style:none;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--mut);border:1px solid var(--rule2);padding:5px 12px;min-height:34px;transition:.12s}
+.sup details.more>summary::-webkit-details-marker{display:none}
+.sup details.more>summary::before{content:"＋";font-weight:800}
+.sup details.more[open]>summary::before{content:"－"}
+.sup details.more>summary:hover,.sup details.more[open]>summary{color:var(--ink);border-color:var(--ink)}
+@media(max-width:600px){.sup details.more>summary{min-height:44px;padding:8px 14px}}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14.5px;color:var(--mut);margin:10px 0}
 .dot{display:inline-block;width:8px;height:8px;margin-right:5px;vertical-align:middle}
 
@@ -413,6 +422,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
 <symbol id="i-conn" viewBox="0 0 24 24"><rect x="2.5" y="8" width="8" height="8" rx="1"/><rect x="13.5" y="8" width="8" height="8" rx="1"/><path d="M10.5 10.5h3M10.5 13.5h3M5 8V5.5M8 8V5.5M16 16v2.5M19 16v2.5"/></symbol>
 <symbol id="i-led" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.2"/><path d="M8 8h.01M12 8h.01M16 8h.01M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" stroke-linecap="round" stroke-width="2.4"/></symbol>
 <symbol id="i-align" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+<symbol id="i-shell" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="9" rx="1.2"/><path d="M6 9V6M9.5 9V6M13 9V6M16.5 9V6M6.5 13.5h8"/></symbol>
 <symbol id="i-cos" viewBox="0 0 24 24"><rect x="3" y="14.5" width="18" height="5" rx="1"/><rect x="6.5" y="9.5" width="7" height="5" rx=".8"/><path d="M13.5 12h7.5" stroke-dasharray="2 2"/><path d="M8.5 9.5V7M11.5 9.5V7"/></symbol>
 </defs></svg>
 
@@ -2290,7 +2300,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <div class="ch-no">06</div>
     <div class="ch-tt"><div class="en">TAIWAN SUPPLY CHAIN</div><h2>台股供應鏈：一環一張表</h2></div>
   </div>
-  <p class="lede">整頁提到的公司都收在這裡：照光從上游走到系統的順序分成 17 環、五大段，龍頭置頂（★＝重點股）。點開每一環看各家產品與進展。</p>
+  <p class="lede">整頁提到的公司都收在這裡：照光從上游走到系統的順序分成 18 環、五大段，龍頭置頂（★＝重點股）。每張卡只列做什麼與一句重點，技術、評等與出處按「細節」展開。</p>
 
   <div class="filters rv" id="chainFilters">
     <button class="fl on" data-f="all">全部公司</button>
@@ -2852,7 +2862,11 @@ const chain=[
     tech:"6 吋 InP 基板；Coherent 以 3 年約＋2,230 萬美元預付綁定其產能與插隊權；子公司 JinMei 自煉高純度銦。",
     mc:"<b>FY26Q2 營收 $47.6M 創高、InP 單季 $30.7M、毛利率站回 45% 轉盈</b>；backlog 破 $1 億、今年產能目標上修至逾 3 倍",
     hl:"InP 正式變成 AI 資料中心「搶產能」標的；供給是唯一天花板",
-    src:"https://www.simpletechtrend.com/post/axti-fy2026-q2-earnings-inp-datacenter"}]},
+    src:"https://www.simpletechtrend.com/post/axti-fy2026-q2-earnings-inp-datacenter"},
+   {nm:"台亞",tk:"2340",cls:"tw",ro:"LED 與光感測元件廠（日亞化集團）；InP 是既有產品線。",
+    mc:"公司回應：InP 應用變多，細節因保密協議不能說",
+    hl:"⚠ 市場傳它切入光通訊用 InP、成為國際大廠第二供應來源；公司沒有說明是基板、磊晶還是元件",
+    src:"鉅亨網 2026-04-20"}]},
 
  {ic:"i-laser",tt:"雷射光源 / ELS",en:"Laser / External Light Source",
   ds:"外部雷射光源模組(ELSFP)，把乾淨連續光餵進 PIC。CPO 主流走外置。<b>分兩層看</b>：<b>光源晶片原廠 IDM</b>（自有磊晶＋晶粒＋模組，握定價權）＝Lumentum、Coherent、古河、三菱｜<b>晶粒供應與 ELS 模組</b>＝華星光、宏捷科、光環、前鼎。晶片由客戶提供、賺加工費的<b>封測代工</b>另列下一環。",
@@ -2897,7 +2911,11 @@ const chain=[
     tech:"<b>20dBm(100mW)8ch VHP ELSFP</b> 已過客戶樣品驗證；16ch DWDM 客製 ELS 通過驗證小量出貨；自建 CoC(Chip on Carrier)產線。",
     mc:"CoC 產線 2026Q3 完成；2027 拚放量",
     hl:"16 波長 DWDM 客製；非紅供應鏈",
-    src:"https://tw.stock.yahoo.com/news/前鼎切入cpo關鍵元件els-今年小量出貨-2027年拚放量-015153989.html"}]},
+    src:"https://tw.stock.yahoo.com/news/前鼎切入cpo關鍵元件els-今年小量出貨-2027年拚放量-015153989.html"},
+   {nm:"威世波",tk:"7930",cls:"tw",ro:"CW 雷射與矽光模組的新進廠商。",
+    mc:"預計 2026/11 出貨 70 mW CW 雷射、2027/1 出貨 100 mW；CW 雷射營收估 2026 年 0.5 億元、2027 年 17 億元",
+    hl:"2025 年營收 7.3 億元、毛利率 15.5%、EPS 0.23 元，基期低",
+    src:"永豐 2026-07-14"}]},
 
  {ic:"i-cos",tt:"雷射封裝測試代工",en:"Laser COS Packaging & Test",
   ds:"雷射晶粒做好之後、裝進模組之前的那一段：把晶粒貼上小載板（COS／COC）、老化、量功率與波長。晶片由雷射原廠提供，代工廠賺加工費。",
@@ -2930,13 +2948,19 @@ const chain=[
    {nm:"富采",tk:"3714",cls:"tw",ro:"友達集團成員，供應 Micro LED 光源；另有 CW、VCSEL 多種光源並進。",
     hl:"永豐 2026-09-30：屬遠期選擇權",
     src:"群益 2026-09-23 專題 p.20；永豐 2026-09-30 p.6"},
-   {nm:"鼎元",tk:"2426",cls:"tw",ro:"友達集團成員，供應 Micro PD 接收元件（友達方案的接收端）。",
-    src:"群益 2026-09-23 專題 p.20"},
+   {nm:"鼎元",tk:"2426",cls:"tw",ro:"光偵測器（PD）廠：800G／1.6T 模組接收端的 PD，也是友達 Micro LED 方案的接收元件。",
+    mc:"投入 12.61 億元買設備、擴無塵室；訂單能見度到 2028 年",
+    hl:"2Q26 毛利率由 13.61% 升到 22.49%",
+    src:"群益 2026-09-23 專題 p.20；理財周刊 2026-09-18"},
    {nm:"錼創",tk:"6854",cls:"tw",ro:"Micro LED 晶粒與巨量轉移技術廠。",
     tech:"光互連用陣列：35 µm 間距約 1.6 Tbps/mm²、25 µm 約 3.2 Tbps/mm²。",
     src:"群益 2026-05-14"},
    {nm:"聯發科",tk:"2454",cls:"tw",ro:"與 Microsoft 合作 Micro LED 光互連（MOSAIC 方案）。",
-    src:"群益 2026-05-14；凱基 2026-04-17"}]},
+    src:"群益 2026-05-14；凱基 2026-04-17"},
+   {nm:"光鼎",tk:"6226",cls:"tw",ro:"LED 封裝廠，轉型功率半導體（SiC MOSFET、IGBT）。",
+    mc:"功率半導體訂單九成以上在印度，能見度到年底",
+    hl:"⚠ 2026 年 9 月跟著 LED 族群被歸進光通訊題材，但查不到公司或券商證實的光通訊產品",
+    src:"經濟日報 2026-09；康和雙週刊 2026-09-24（歸類為功率半導體）"}]},
 
  {grp:"晶片與光模組",ic:"i-chip",tt:"矽光子 PIC / 晶圓代工",en:"Silicon Photonics / Foundry",
   ds:"光的處理平台，把調變器/PD/耦合器整合進一塊晶片。CPO 的心臟。",
@@ -2976,7 +3000,14 @@ const chain=[
     tech:"MZM 224G PAM4、Ge PD 100GHz、SPX1 PDK（整合 Cadence/Synopsys）；主打 PIC→封裝→CPO 一站式。",
     mc:"2027–28 OE-on-substrate、2030 CPO turnkey",
     hl:"時程落後台積電 COUPE 約 3 年，但 turnkey 敘事直指同一批客戶",
-    src:"https://www.simpletechtrend.com/post/ofc2026-samsung-foundry-300mm-siph-platform-analysis"}]},
+    src:"https://www.simpletechtrend.com/post/ofc2026-samsung-foundry-300mm-siph-platform-analysis"},
+   {nm:"環球晶",tk:"6488",cls:"tw",ro:"矽晶圓大廠；供應矽光子用的 SOI 晶圓。",
+    mc:"2027 年美國密蘇里 SOI 產能放量；需求增加來自矽光子與高規格 12 吋晶圓",
+    src:"玉山 2026-10-01 月報 p.6；統一 2026-08-05"},
+   {nm:"嘉晶",tk:"3016",cls:"tw",ro:"磊晶代工廠；做矽光子用的鍺（Ge）磊晶。",
+    mc:"矽光子已開始貢獻營收；矽磊晶轉 8 吋、擴產幅度翻倍",
+    hl:"國泰 買進 188、華南 買進 180",
+    src:"國泰 2026-09-24；華南 2026-09-29"}]},
 
  {ic:"i-mod",tt:"調變器材料",en:"Modulator",
   ds:"把電變光的關鍵。矽光/TFLN/plasmonics 三路線撞頻寬牆。",
@@ -2998,8 +3029,8 @@ const chain=[
     hl:"首個 TFLN CPO 發射器；耦合損耗(~8dB/facet)待改",
     src:"https://www.simpletechtrend.com/post/ectc-2026-nokia-bell-labs-thin-film-lithium-niobate-hybrid-integration-for-co-packaged-optics"}]},
 
- {ic:"i-wave",tt:"光模組零件：DSP／TIA／時脈",en:"DSP · TIA · Timing",
-  ds:"光模組裡的電子零件：DSP 把訊號整理乾淨，TIA 與 Driver 負責放大與驅動，時脈元件給節拍。不是 CPO 專屬，NPO 與可插拔模組出得越多越受惠。",
+ {ic:"i-wave",tt:"電晶片與零件：DSP／EIC／時脈",en:"DSP · EIC · Timing",
+  ds:"光模組與光引擎裡的電子零件：DSP 把訊號整理乾淨，EIC（驅動與放大）搭配光晶片，時脈元件給節拍。多數不是 CPO 專屬，NPO 與可插拔模組出得越多越受惠。",
   pain:"DSP 約占模組一半功耗（400G 約 8W、800G 約 18W），LPO 與 CPO 的方向就是把它拿掉或搬走；時脈元件要跟著 1.6T／3.2T 提高頻率、壓低抖動。",
   items:[
    {nm:"達發",tk:"6526",cls:"tw",ro:"光通訊用 DSP 與 TIA（聯發科集團）。",
@@ -3007,10 +3038,17 @@ const chain=[
     src:"元大投顧〈光通訊產業〉2026-09-21"},
    {nm:"晶技",tk:"3042",cls:"tw",ro:"石英振盪器，光收發模組的時脈元件。",
     mc:"元大 2026-09-21：買進、目標價 230 元，列為最看好",
-    src:"元大投顧〈光通訊產業〉2026-09-21"}]},
+    src:"元大投顧〈光通訊產業〉2026-09-21"},
+   {nm:"義隆",tk:"2458",cls:"tw",ro:"觸控 IC 廠；與轉投資的 PETA 合作 CPO，負責電晶片（EIC）。",
+    mc:"預估 2028 年開始貢獻營收",
+    hl:"宏遠 買進 188、中信 中立 163",
+    src:"宏遠 2026-08-12；中信 2026-08-06"},
+   {nm:"瑞昱",tk:"2379",cls:"tw",ro:"網通 IC 大廠；伺服器光通訊用的 100G Optical PHY。",
+    mc:"客戶驗證中",
+    src:"國泰法說 memo 2026-07-30"}]},
 
- {ic:"i-pcb",tt:"光模組 PCB",en:"Module PCB (mSAP)",
-  ds:"光模組裡那片又小又密的電路板。800G／1.6T 的線路細到傳統製程做不出來，要改用 mSAP（改良型半加成法，原本是手機主板與載板的製程），所以手機板、載板大廠切得進來。",
+ {ic:"i-pcb",tt:"光模組 PCB／載板與材料",en:"Module PCB · Substrate · CCL",
+  ds:"光模組裡那片又小又密的電路板，加上它的上游材料與檢測設備。800G／1.6T 的線路細到傳統製程做不出來，要改用 mSAP（改良型半加成法，原本是手機主板與載板的製程），所以手機板、載板大廠切得進來。",
   pain:"2026 年卡在高階銅箔基板（M7 CCL）缺料，光模組板出貨受限（統一 2026-09-08）。1.6T 板 14–16 層、毛利率 40–45% 以上（國泰 2026-09-18），三家都在大幅擴產——2027 年產能集中開出後的價格是觀察點。",
   items:[
    {lead:1,rk:"★台廠",nm:"臻鼎-KY",tk:"4958",cls:"tw",ro:"手機軟板與類載板大廠；目標 2027 年成為全球最大的高階光模組 PCB 供應商。",
@@ -3027,7 +3065,27 @@ const chain=[
     tech:"光模組板走 mSAP HDI，HDI 約占營收 27%；資本支出 85% 仍投 ABF 載板，光模組是第二條線。",
     mc:"光模組板產能 2026 年底前較目前多 50%，2027 年啟動龜山廠；CPO 載板已出貨",
     hl:"⚠ 2026-08-28 遭檢調搜索，調查 PCB 產地標示；公司稱與載板無關、影響營收不到 1%",
-    src:"統一 2026-09-08；元富 2026-07-30；國泰 2026-09-24"}]},
+    src:"統一 2026-09-08；元富 2026-07-30；國泰 2026-09-24"},
+   {nm:"景碩",tk:"3189",cls:"tw",ro:"ABF／BT 載板廠；光模組進到 800G 以上要用載板與 mSAP。",
+    mc:"光模組是 2027–2029 年 BT 載板的重要目標；BT 載板受記憶體與光模組拉動而漲價",
+    hl:"宏遠 買進 1,205",
+    src:"合庫 2026-08-28；宏遠 2026-09-29"},
+   {nm:"柏承",tk:"6141",cls:"tw",ro:"PCB 廠；南通廠用 mSAP 做 800G／1.6T 光模組 HDI 板。",
+    mc:"南通廠約 17 萬呎產能轉供美系光模組客戶；800G 板單價約 20 美元",
+    hl:"⚠ 初期良率約 50%、2026 年仍虧損（第一金 買進 100）",
+    src:"第一金 2026-09-29"},
+   {nm:"台光電",tk:"2383",cls:"tw",ro:"銅箔基板（CCL）龍頭；光模組板的上游材料。",
+    mc:"800G 光模組以 M8 等級 CCL 為主",
+    hl:"高盛 買進 10,200：光收發模組需求的主要受惠者；群益 買進 7,175",
+    src:"群益 2026-09-17；高盛 2026-09-08"},
+   {nm:"牧德",tk:"3563",cls:"tw",ro:"PCB 與載板的光學檢測（AOI）、電測設備；光模組板也用得到。",
+    mc:"2027 年成長力道：半導體與載板最強，mSAP 與光模組居次；訂單能見度逾 1 年",
+    hl:"宏遠 買進 1,070",
+    src:"宏遠 2026-10-01；元大 Call Memo 2026-09-30"},
+   {nm:"和益",tk:"1709",cls:"tw",ro:"化工廠；開發低介電損耗的碳氫樹脂（載板與高頻材料用）。",
+    mc:"規劃用於高階載板、CoWoS 與光通訊射頻模組；目標 2027 年中商品化",
+    hl:"⚠ 部分還在實驗室、部分做製程測試；報導用語是「傳出」，公司未正式證實",
+    src:"工商時報 2026-10-01；群益 2026-10-02"}]},
 
  {ic:"i-module",tt:"光模組 / 光收發器",en:"Optical Module / Transceiver",
   ds:"把光引擎+FAU+DSP 組成完整可插拔模組或光引擎(OE)。",
@@ -3082,7 +3140,11 @@ const chain=[
     tech:"旭創(300308)全球市占 >40%、1.6T 過半、Google 核心（60–70%）；新易盛(300502) Amazon 核心（~60%）、800G LPO 過 NVIDIA 認證；光迅(002281) 200G EML 驗證中；天孚(TFC) 經 Mellanox 進 NVIDIA 1.6T 光引擎。",
     mc:"旭創 Q1 營收 +192%、新易盛 +106%",
     hl:"台廠競爭與比價的基準線；旭創/天孚推 H 股上市",
-    src:"https://www.simpletechtrend.com/post/2025-2026-optica-transceiver"}]},
+    src:"https://www.simpletechtrend.com/post/2025-2026-optica-transceiver"},
+   {nm:"佳必琪",tk:"6197",cls:"tw",ro:"連接線與光收發模組；光通訊約占營收 11%。",
+    mc:"2026 年主力 800G；1.6T 已取得四家美系客戶認證；2027 年推 3.2T NPO",
+    hl:"康和 買進 450、華南 買進 365",
+    src:"康和 2026-09-02；華南 2026-09-02"}]},
 
  {grp:"光纖、連接與被動元件",ic:"i-fiber",tt:"FAU / 光纖耦合",en:"Fiber Array / Coupling",
   ds:"把多通道光訊號準確導入光纖——CPO 最貴、最沒標準化的成本黑洞。「FAU＝做耦光這動作的實體零件」，各家用不同技術搶這塊。",
@@ -3137,7 +3199,22 @@ const chain=[
     tech:"8 月送客戶驗證、力拚 2027 量產；與大立光在 COMPUTEX 同台展出精密 FA／PMLA／V-Groove，期望以代工模式協助 FAU 廠完成驗證。",
     mc:"2026/8/20–31 漲幅 8.6%（玉晶光同期 +54.6%）——市場已區分「關聯企業」與「本尊」",
     hl:"元大 2026-08 零組件表：V-Groove／稜鏡／MT 插芯三格都有它",
-    src:"永豐觀點 2026-09-04；元大投顧 2026-08"}]},
+    src:"永豐觀點 2026-09-04；元大投顧 2026-08"},
+   {nm:"同欣電",tk:"6271",cls:"tw",ro:"陶瓷基板與影像感測封裝廠；切入光通訊 800G／1.6T 的 FAU。",
+    mc:"FAU 用於 NVIDIA 跨資料中心（50–80 km）互連",
+    hl:"康和 逢低買進 258、富邦 買進 250",
+    src:"康和 2026-09-15；富邦 2026-08-06"},
+   {nm:"中揚光",tk:"6668",cls:"tw",ro:"鏡頭與模造玻璃廠；FAU 用的 37 芯微透鏡陣列。",
+    mc:"已切入，可望搶進 CPO",
+    hl:"2Q26 仍虧損（EPS −0.22 元）；群益 買進 45",
+    src:"群益 2026-08-10"},
+   {nm:"群創",tk:"3481",cls:"tw",ro:"面板廠；與康寧合作玻璃光通道與光耦合封裝組件。",
+    mc:"新應用最快 2H28–2029 年落地",
+    hl:"統一 中立；已加入台積電、日月光的矽光子產業聯盟",
+    src:"統一 2026-09-14"},
+   {nm:"聯一光",tk:"3441",cls:"tw",ro:"光學玻璃毛胚廠（光學元件的基礎材料）。",
+    hl:"⚠ 券商說它與 CPO 微透鏡有題材連結，原文用「想像空間」，不是已接單",
+    src:"群益 2026-10-02"}]},
 
  {ic:"i-conn",tt:"光連接器／Shuffle Box／光纖",en:"Connectors · Shuffle Box · Fiber",
   ds:"FAU 後面那一段：把光從光引擎接到面板的小型高密度連接器（MT／MMC／MPO）、整理上千條光纖的 Shuffle Box，以及一根裡面塞多個纖芯的新光纖。",
@@ -3162,7 +3239,15 @@ const chain=[
     tech:"全球首家量產超低損耗 MCF；針對 CPO 表面耦合開發低外型高密度光互連；2026/2 與 AFL/Corning/TeraHop 組 SDM4 四核心 MCF MSA。",
     mc:"2C Z-PLUS 雙核心 2023/10 上市，容量倍增",
     hl:"MCF+CPO+WDM 空分多工長期方案",
-    src:"https://sumitomoelectric.com/press/2026/02/prs011"}]},
+    src:"https://sumitomoelectric.com/press/2026/02/prs011"},
+   {nm:"嘉澤",tk:"3533",cls:"tw",ro:"CPU 插座龍頭；開發 NPO 用的插座（socket）。",
+    mc:"NPO socket 2H27 開始貢獻",
+    hl:"富邦 買進 2,300、統一 中立 2,000",
+    src:"統一 2026-09-29；富邦 2026-09-23"},
+   {nm:"沛亨",tk:"6291",cls:"tw",ro:"AI 資料中心用光纖（800G／1.6T）；振曜的子公司。",
+    mc:"2026 年光纖產能年增 5 倍、2027 年再增 100%；光纖營收占比 2026 年 44% → 2027 年 56%",
+    hl:"華南 強力買進 700、第一金 買進 700",
+    src:"華南 2026-09-21；第一金 2026-09-17"}]},
 
  {ic:"i-lens",tt:"光學被動元件：鍍膜／濾光片／偏振／隔離器",en:"Coatings · Filters · Polarization · Isolators",
   ds:"FAU 端面的低反射鍍膜、分光合光用的薄膜濾光片（TFF）、保偏與偏振管理、防回反射的隔離器——光走到晶片前後「看不見但少不了」的被動元件。誰直接、誰間接、誰只是同工藝，見第 09 章。",
@@ -3188,6 +3273,22 @@ const chain=[
     mc:"2Q26 營收 3.33 億（QoQ+30%）、毛利率 63.9%、EPS 2.77；1–8 月 8.21 億（+32.7%）；TP：玉山 1,085（3/30）、中信 680（7/16）、康和 810（9/16）",
     hl:"⚠ 公司自述「對 CPO 熟悉，現階段優先專注低軌衛星」；三家券商沒有一份把它列入 CPO／FAU 供應鏈",
     src:"玉山 2026-03-30；中信投顧 2026-07-16；康和投顧 2026-09-16"}]},
+
+ {ic:"i-shell",tt:"光模組機構件與散熱",en:"Housing · Plating · Cooling",
+  ds:"光模組的金屬外殼、電鍍、快接頭與補強片。1.6T 之後模組更熱，外殼從鋅合金換成鋁合金，也開始接液冷。",
+  pain:"跟著 1.6T 與 CPO／NPO 的時程走：多數產線 2026 年底才量產、2027 年才有貢獻，還在爬坡。",
+  items:[
+   {nm:"匯鑽科",tk:"8431",cls:"tw",ro:"金屬表面處理廠；1.6T 光模組金屬件電鍍。",
+    mc:"深圳 1.6T 鋁合金產線 2026/11–12 量產，日產能 22 萬片；在手訂單 9–10 萬片／日",
+    hl:"泰國廠 1.6T 光模組 4Q26 起逐月出貨；毛利率是 800G 鋅合金產品的兩倍以上",
+    src:"元大 Call Memo 2026-09-15；華南 Memo 2026-09-14"},
+   {nm:"富世達",tk:"6805",cls:"tw",ro:"軸承與液冷快接頭廠；光收發模組用的 Mini QD 快接頭。",
+    mc:"CPO 用快接頭已送樣，2027 年貢獻",
+    hl:"元大 買進 2,380",
+    src:"元大 2026-08-05；大和 2026-07-07"},
+   {nm:"健策",tk:"3653",cls:"tw",ro:"均熱片與扣件大廠；CPO／NPO 用的補強片（stiffener）。",
+    mc:"摩根大通 2026-09-29：加碼、目標價 7,500 元",
+    src:"摩根大通 2026-09-29"}]},
 
  {grp:"封裝與系統",ic:"i-pkg",tt:"CPO 封裝 / 封測 OSAT",en:"CPO Packaging / OSAT",
   ds:"把光引擎跟 ASIC 共封裝、做最終測試。CPO 重構封裝產業鏈。",
@@ -3217,7 +3318,25 @@ const chain=[
     tech:"<b>CPO 系統級組裝與測試</b>：把 switch-CPO 組件與子組件整合進交換器機箱；同時是可插拔光模組(EML/DSP)的組裝代工大本營。",
     mc:"NVIDIA CPO 交換器系統組裝夥伴",
     hl:"光模組/CPO 組裝外包龍頭；接單 NVIDIA/Marvell/Coherent 等",
-    src:"https://developer.nvidia.com/blog/a-new-era-in-data-center-networking-with-nvidia-silicon-photonics-based-network-switching/"}]},
+    src:"https://developer.nvidia.com/blog/a-new-era-in-data-center-networking-with-nvidia-silicon-photonics-based-network-switching/"},
+   {nm:"頎邦",tk:"6147",cls:"tw",ro:"驅動 IC 封測與金凸塊；光通訊晶片的金凸塊。",
+    mc:"光通訊營收占比 2026 年 8% → 2027 年 23% → 2028 年 35%",
+    hl:"受惠單通道 200G 以上架構；華南永昌 買進 241、康和 買進 258",
+    src:"華南永昌 2026-09-30；康和 2026-09-24"},
+   {nm:"南茂",tk:"8150",cls:"tw",ro:"記憶體與驅動 IC 封測；矽光子用的光學銅凸塊。",
+    mc:"光學銅凸塊 2027 年約貢獻營收 4%、2028 年約 8%",
+    hl:"華南永昌 買進 120",
+    src:"華南永昌 2026-09-30"},
+   {nm:"欣銓",tk:"3264",cls:"tw",ro:"晶圓測試廠；矽光子產品測試。",
+    mc:"全智湖口新廠 3Q26 進入矽光子產品量產",
+    hl:"群益 買進 322",
+    src:"群益 2026-10-02"},
+   {nm:"力成",tk:"6239",cls:"tw",ro:"記憶體封測大廠；布局面板級封裝與 CPO。",
+    mc:"CPO 相關預計 2027 年底到 2028 年初量產",
+    src:"國票 2026-09-29；群益 2026-09-23"},
+   {nm:"瑞峰",tk:"7873",cls:"tw",ro:"興櫃封測廠；欣銓、漢民、Fabrinet 三大股東合計持股逾 50%。",
+    mc:"矽光子預計 2028 年量產",
+    src:"中國信託投顧 2026-07-13"}]},
 
  {ic:"i-switch",tt:"網通交換器 / 系統",en:"Switch / System",
   ds:"CPO 交換器整機與系統整合。",
@@ -3280,10 +3399,14 @@ const chain=[
     src:"華南 2026-09-18；兆豐 2026-09-07；STT 2026-09-07"},
    {nm:"上銀",tk:"2049",cls:"tw",ro:"滑軌與矽光子檢測設備（上游）。",
     mc:"矽光子檢測設備交期拉到 6 個月",
-    src:"華南 2026-09-18；兆豐 2026-09-07；STT 2026-09-07"}]},
+    src:"華南 2026-09-18；兆豐 2026-09-07；STT 2026-09-07"},
+   {nm:"崇越",tk:"5434",cls:"tw",ro:"半導體材料通路；代理日本 SCIVAX 的奈米壓印（NIL）設備。",
+    mc:"可一次完成 150–200 顆光纖的高精度耦合對準；台灣、中國、東南亞獨家代理",
+    hl:"元大 買進 650",
+    src:"元大 2026-09-03"}]},
 
- {ic:"i-probe",tt:"測試設備（Insertion 1–5）",en:"Test Equipment",
-  ds:"從晶圓、光引擎到整顆 CPO 模組，一路要測五道。光引擎一旦跟 ASIC 封在一起，壞一顆就整顆報廢，所以從抽檢變全檢、設備幾乎全換新。每一道測什麼見第 07 章。",
+ {ic:"i-probe",tt:"測試與檢測設備",en:"Test & Inspection Equipment",
+  ds:"從晶圓、光引擎到整顆 CPO 模組，一路要測五道（Insertion 1–5）；可插拔光模組也有自己的檢測設備。光引擎一旦跟 ASIC 封在一起，壞一顆就整顆報廢，所以從抽檢變全檢。每一道測什麼見第 07 章。",
   pain:"瓶頸在第 2、3 道：光纖對位時間太長，雙面測試一片要 20 小時、量產需要 6–8 小時。反面：測試機裡的光學儀器多半外購或由客戶提供，入列不等於賺更多（國泰 2026-09-11）。",
   items:[
    {lead:1,rk:"★台廠",nm:"致茂",tk:"2360",cls:"tw",ro:"光引擎與 CPO 模組測試機（Insertion 3、4），加上系統級測試（Insertion 5）。",
@@ -3302,7 +3425,22 @@ const chain=[
    {nm:"光焱",tk:"7728",cls:"tw",ro:"晶圓級光學檢測機 Night Jar（Insertion 1 前後）。",
     mc:"已過 POC、POT，目標 2026 年底通過量產認證；2027 年 CPO 營收占比目標 40%",
     src:"統一 2026-09-18；群益 2026-09-18"},
-   {nm:"均華",tk:"6640",cls:"tw",ro:"CPO 晶粒挑揀機（Sorter），已出貨。"}]},
+   {nm:"均華",tk:"6640",cls:"tw",ro:"CPO 晶粒挑揀機（Sorter），已出貨。"},
+   {nm:"漢測",tk:"7856",cls:"tw",ro:"晶圓測試設備與探針卡；與 ficonTEC 合作 CPO 測試。",
+    mc:"CPO Insertion 2、3 由工程服務升級為 OEM／ODM",
+    hl:"玉山 增加持股 5,045",
+    src:"玉山 2026-09-22；富邦 2026-09-22"},
+   {nm:"雍智",tk:"6683",cls:"tw",ro:"測試載板與探針卡。",
+    mc:"已開始出貨矽光子探針卡給美系客戶",
+    src:"群益 2026-07-22"},
+   {nm:"印能",tk:"7734",cls:"tw",ro:"先進封裝的除泡與翹曲控制設備。",
+    mc:"第四代機台切入矽光子，2H26 陸續交機",
+    hl:"元富 買進 3,800",
+    src:"元富 2026-08-28；群益 2026-09-23"},
+   {nm:"全友",tk:"2305",cls:"tw",ro:"掃描器廠轉型；子公司上海嘉慧做光通訊模組的檢測設備。",
+    mc:"打入中際旭創、新易盛供應鏈，新易盛是最大客戶",
+    hl:"⚠ 2026 年前五月營收 4.82 億元（年增 66.3%），規模還小；9 月股價 30 日漲逾 120%",
+    src:"經濟日報 2026-06-15；康和雙週刊 2026-09-24"}]},
 
  {ic:"i-zoom",tt:"檢測分析服務",en:"Failure · Material · Reliability Analysis",
   ds:"不賣機台、賣服務的第三方實驗室：失效分析、材料分析、可靠度驗證。矽光子封裝後很難拆，研發驗證與量產後找問題都得外送。各家進度見第 07 章。",
@@ -3375,10 +3513,13 @@ ${c.grp?`<div class="grp">${c.grp}</div>`:''}<details class="acc"${i===0?' open'
         ${s.rk?`<span class="rk">${s.rk}</span>`:''}
         <div class="nm">${s.nm}<span class="tk ${s.cls}">${s.tk}</span></div>
         <div class="ro">${s.ro}</div>
-        ${s.tech?`<div class="tech">${s.tech}</div>`:''}
         ${s.mc?`<div class="mc">${s.mc}</div>`:''}
-        ${s.hl?`<div class="hl2">${s.hl}</div>`:''}
-        ${s.src?`<div class="src">${/^https?:/.test(s.src)?`<a href="${s.src}" target="_blank" rel="noopener">來源 ↗</a>`:'來源：'+s.src}</div>`:''}
+        ${s.hl&&s.hl[0]==='⚠'?`<div class="hl2 warn">${s.hl}</div>`:''}
+        ${(s.tech||s.src||(s.hl&&s.hl[0]!=='⚠'))?`<details class="more"><summary>細節</summary>
+          ${s.tech?`<div class="tech">${s.tech}</div>`:''}
+          ${s.hl&&s.hl[0]!=='⚠'?`<div class="hl2">${s.hl}</div>`:''}
+          ${s.src?`<div class="src">${/^https?:/.test(s.src)?`<a href="${s.src}" target="_blank" rel="noopener">來源 ↗</a>`:'來源：'+s.src}</div>`:''}
+        </details>`:''}
       </div>`).join('')}
     </div>
   </div>
