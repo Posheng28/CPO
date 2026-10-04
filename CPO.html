@@ -399,6 +399,149 @@ table.tbl.stack-m td:first-child::before{content:none}
 table.tbl.stack-m td:has(.chip){white-space:normal}
 table.tbl.stack-m .cv .chip{margin-right:4px}
 }
+/* ===== 手機版（≤600px）。只在這個區塊調整，電腦版不受影響 ===== */
+@media(max-width:600px){
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.wrap{padding:0 16px}
+nav.toc .in{padding:0 8px}
+section{margin-top:52px}
+.ch-head{gap:12px;padding-bottom:10px}
+.ch-no{font-size:44px}
+h1{margin:16px 0 8px}
+.standfirst{font-size:16px;line-height:1.75}
+.byline{margin:12px 0 18px;gap:6px 16px}
+.lede{font-size:16px;line-height:1.75;margin:12px 0 16px}
+h3.sub{font-size:18px;margin:28px 0 10px}
+.why{padding:14px 15px;font-size:15.5px;line-height:1.7;margin:16px 0}
+.why .big{font-size:17.5px;line-height:1.55;margin-bottom:8px}
+.callout{padding:12px 14px;font-size:15.5px;line-height:1.7}
+.note{padding:10px 13px;font-size:15.5px;line-height:1.7}
+.fn{font-size:13px;line-height:1.65;margin:6px 0 16px}
+.who{font-size:15px}
+.plate{margin:16px 0}
+.plate figcaption{padding:8px 12px;gap:8px}
+.plate figcaption .fno{font-size:14.5px}
+.plate figcaption .ft{font-size:14.5px;line-height:1.65}
+/* 長段落：一句一行並編號 */
+.pts .pnt{display:block;position:relative;padding-left:1.5em;margin:5px 0}
+.pts .pnt::before{content:attr(data-n) ".";position:absolute;left:0;top:0;font-weight:800;color:var(--amber)}
+.pts .pnt.lead{padding-left:0}
+.pts .pnt.lead::before{content:none}
+.why.pts{display:flex;flex-direction:column}
+.why.pts .big{display:contents}
+.why.pts .big .pnt.lead{order:0;margin:0 0 6px}
+.why.pts .big .pnt:not(.lead){font-family:var(--sans);font-size:15.5px;font-weight:400;color:var(--body);line-height:1.7}
+.note.pts>b:first-child{display:block}
+/* 重點數字 */
+.stats{margin:22px 0 4px}
+.st{padding:12px 10px 10px}
+.st .v{font-size:24px}
+.st .v small{font-size:15px}
+.st .k{font-size:14px}
+.nums .n{display:grid;grid-template-columns:6.4em 1fr;column-gap:12px;align-items:center;padding:12px 2px}
+.nums .v{font-size:28px}
+.nums .v small{font-size:14px}
+.nums .k{margin-top:0;font-size:14.5px}
+.eq{margin:14px 0 4px}
+.lab{padding:14px 12px}
+.yo{padding:10px 12px}
+.yv{font-size:26px}
+.yk{font-size:14px}
+/* 步驟框：標題在左、說明在右 */
+.flow .s{display:grid;grid-template-columns:var(--lw,6.6em) 1fr;column-gap:12px;align-items:start;padding:12px 13px}
+.flow .s .p{grid-column:1;grid-row:1/span 6;font-size:20px;line-height:1.3}
+.flow .s .t,.flow .s .d{grid-column:2}
+.flow .s .t{margin-top:0;font-size:16px}
+.flow .s .d{font-size:14.5px;margin-top:3px}
+#readmap{--lw:3.4em}
+.chain{display:block}
+.chain .node{display:grid;grid-template-columns:4.4em 1fr;column-gap:8px;min-width:0;padding:11px 12px;border-right:none;border-bottom:1px solid var(--rule)}
+.chain .node:last-child{border-bottom:none}
+.chain .node svg{display:none}
+.chain .node .stp{grid-column:1;grid-row:1/span 3;font-size:12px;padding-top:5px}
+.chain .node .nm,.chain .node .en,.chain .node .ds{grid-column:2}
+.chain .node .nm{font-size:16.5px}
+.chain .node .ds{font-size:14.5px;margin-top:3px}
+.tl-track{grid-template-columns:1fr;gap:8px}
+.tl-item{display:grid;grid-template-columns:3.4em 1fr;column-gap:10px;border-top:1px solid var(--rule2);border-left:3px solid var(--ink);padding:10px 12px}
+.tl-item .yr{font-size:19px}
+.tl-item .ev{margin-top:0;font-size:14.5px;line-height:1.6}
+/* 卡片 */
+.grid{gap:10px}
+.card{padding:14px}
+.card h4{font-size:17.5px}
+.card p{font-size:15px}
+.card .kd{font-size:14.5px;padding:8px 10px}
+.route{padding:13px 14px}
+.route h4{font-size:18px}
+.route .r-row{font-size:15px}
+.route .r-row .k{min-width:44px;font-size:14px}
+/* 圖：縮小會看不清，改成左右滑動 */
+.svgbox,.chartbox{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.svgbox>svg{min-width:720px}
+.mast .svgbox>svg{min-width:1000px}
+.svgbox::before,.chartbox::before,.anat .img-side::before{content:"← 左右滑動看整張圖 →";display:block;position:sticky;left:0;width:max-content;font-size:12px;color:var(--faint);letter-spacing:.06em;padding:2px 4px 4px}
+.mast .svgbox::before{color:#8fa0b3;padding:6px 8px 4px}
+.m-hide{display:none}
+.anat .img-side{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:6px}
+.anat .img-in{min-width:700px}
+.anat .leg{padding:2px 6px 8px}
+.anat .leg .lg-h{padding:10px 10px 6px}
+.anat .lg{padding:9px 10px;gap:10px}
+.anat .lg .t{font-size:16px}
+.anat .lg .d{font-size:14.5px}
+.anat .pop{width:270px;font-size:14.5px;padding:11px 14px 10px}
+.anat .pop .pt{font-size:16px}
+/* 表格 */
+table.tbl{font-size:14.5px}
+table.tbl th,table.tbl td{padding:8px 10px}
+table.tbl thead th{font-size:13.5px}
+table.tbl.kv,table.tbl.num{display:table;table-layout:fixed}
+table.tbl.kv th,table.tbl.kv td{min-width:0;white-space:normal}
+table.tbl.kv th:first-child,table.tbl.kv td:first-child{width:37%;white-space:normal}
+table.tbl.num th,table.tbl.num td{min-width:0;padding:8px 3px 8px 8px;white-space:normal;font-size:13.5px}
+table.tbl.num th small{font-size:11px}
+table.tbl.num td:first-child{white-space:nowrap}
+table.tbl.stack-m tr{padding:4px 12px;margin-bottom:8px}
+table.tbl.stack-m td{grid-template-columns:5.8em 1fr;padding:7px 0}
+table.tbl.stack-m td::before{font-size:13.5px}
+table.tbl.stack-m td:first-child{font-size:16.5px}
+/* 檢測卡 */
+.ins{padding:13px}
+.ins .tt{font-size:16.5px}
+.ins .rw{font-size:14.5px}
+.ins-wide .ins .rw{font-size:15px;line-height:1.7;margin-top:9px}
+.ins-wide .ins .rw>b:first-child{font-size:13px}
+/* 供應鏈 */
+.filters{gap:6px;margin:12px 0 14px}
+.filters .fl{padding:8px 12px;font-size:14.5px}
+.grp{margin:22px 0 8px;font-size:16px}
+details.acc>summary{padding:12px}
+.s-ic{display:none}
+.s-no{font-size:20px;min-width:26px}
+.s-tt{font-size:17px;gap:8px}
+.s-ds{font-size:14.5px;line-height:1.6}
+.s-body{padding:2px 10px 12px}
+.painbar{font-size:14.5px;padding:9px 11px;margin:10px 0;line-height:1.65}
+.sups{gap:10px}
+.sup{padding:12px}
+.sup .nm{font-size:17px}
+.sup .ro{font-size:15px}
+.sup .mc,.sup .tech,.sup .hl2{font-size:14.5px}
+/* 長框減重：只框重點句，其餘是清單 */
+.why.pts,.why.pts2{background:none;border:none;padding:0}
+.why.pts .big .pnt.lead,.why.pts2 .big{background:var(--panel);border:1px solid var(--rule2);border-left:4px solid var(--red);padding:11px 13px;margin:0 0 8px}
+.why.pts2 .big{display:block;font-size:17px;line-height:1.5}
+.why.pts2 br{display:none}
+.why.pts2 .pnt{display:block;margin:8px 0}
+.why.pts2 .pnt.co{border-top:1px dashed var(--rule2);padding-top:8px}
+.why.pts2 .pnt.co>b:first-of-type{display:block;font-size:16px}
+.callout.pts,.note.pts{background:none;border:none;border-left:3px solid var(--amber);padding:2px 0 2px 12px}
+#ychain{--lw:8em}
+table.tbl.num thead th{letter-spacing:0;font-size:13px}
+/* 熱點說明卡：手機上固定在畫面底部，不會跑出螢幕 */
+.anat .pop{position:fixed;left:12px!important;right:12px!important;top:auto!important;bottom:12px!important;width:auto;z-index:70}
+}
 </style>
 </head>
 <body>
@@ -492,9 +635,9 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <div class="ch-tt"><h2>光波導 × CPO 到底怎麼結合</h2></div>
   </div>
 
-  <div class="why rv">
-    <span class="big">AI 要的頻寬太大，銅線傳不動，只好改用光。但光要進晶片有兩個難處：光纖粗、晶片上的光路細，尺寸差幾十倍；而且對位又慢又貴。光波導是接在兩者中間的轉接段。</span>
-    AI 算力需求每年成長約 <b>75%</b>，但銅纜能供給的頻寬每年只成長約 <b>20%</b>。最痛的是 GPU 互連（scale-up）那 <b>1 公尺銅纜</b>：3.2T 高速訊號用銅傳輸幾乎撐不過 1 米，把 72 顆 GPU 硬鎖進一個機櫃。要突破，就得把「電訊號」換成「光訊號」。
+  <div class="why rv pts">
+    <span class="big"><span class="pnt lead">AI 要的頻寬太大，銅線傳不動，只好改用光。</span><span class="pnt" data-n="4" style="order:4">但光要進晶片有兩個難處：光纖粗、晶片上的光路細，尺寸差幾十倍；而且對位又慢又貴。</span><span class="pnt" data-n="5" style="order:5">光波導是接在兩者中間的轉接段。</span></span>
+    <span class="pnt" data-n="1" style="order:1">AI 算力需求每年成長約 <b>75%</b>，但銅纜能供給的頻寬每年只成長約 <b>20%</b>。</span><span class="pnt" data-n="2" style="order:2">最痛的是 GPU 互連（scale-up）那 <b>1 公尺銅纜</b>：3.2T 高速訊號用銅傳輸幾乎撐不過 1 米，把 72 顆 GPU 硬鎖進一個機櫃。</span><span class="pnt" data-n="3" style="order:3">要突破，就得把「電訊號」換成「光訊號」。</span>
   </div>
 
   <details class="fold rv"><summary><span class="pm"></span>圖：頻寬越高，銅纜能傳的距離越短</summary>
@@ -622,8 +765,8 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   <h3 class="sub">什麼是「光波導」</h3>
   <p class="lede" style="margin-top:2px">光波導＝<b>光的水管、光的軌道</b>。原理：中間「核心 core」折射率高、外圈「包層 cladding」折射率低，光被全反射關在核心裡，沿著你畫的路徑走、不會漏出去。晶片裡、玻璃裡、聚合物裡都能做光波導。</p>
 
-  <div class="callout rv"><span class="cl-k">難處：尺寸差太多</span>
-    晶片上的矽波導只有 <b>數百奈米（nm）</b>寬，一根單模光纖的芯是 <b>約 9~10 微米（µm）</b>——兩者差 <b>數十倍</b>。光直接從光纖噴進晶片，就像消防水管接微血管，大部分光會漏掉。所以中間需要一段「漸變的光波導」當<b>轉接橋</b>，把光斑從大（光纖）慢慢縮到小（晶片），專有名詞叫 <b>Spot-Size Converter（SSC，光斑尺寸轉換器）</b>。它還順便把「間距」從疏（光纖 127~250µm）轉到密（晶片幾十 µm），這層在封裝裡叫<b>光學重佈線 ORDL（Optical RDL）</b>。
+  <div class="callout rv pts"><span class="cl-k">難處：尺寸差太多</span>
+    <span class="pnt" data-n="1">晶片上的矽波導只有 <b>數百奈米（nm）</b>寬，一根單模光纖的芯是 <b>約 9~10 微米（µm）</b>——兩者差 <b>數十倍</b>。</span><span class="pnt" data-n="2">光直接從光纖噴進晶片，就像消防水管接微血管，大部分光會漏掉。</span><span class="pnt" data-n="3">所以中間需要一段「漸變的光波導」當<b>轉接橋</b>，把光斑從大（光纖）慢慢縮到小（晶片），專有名詞叫 <b>Spot-Size Converter（SSC，光斑尺寸轉換器）</b>。</span><span class="pnt" data-n="4">它還順便把「間距」從疏（光纖 127~250µm）轉到密（晶片幾十 µm），這層在封裝裡叫<b>光學重佈線 ORDL（Optical RDL）</b>。</span>
   </div>
 
   <div class="svgbox rv">
@@ -663,7 +806,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <div class="n"><div class="v">72<small>%</small></div><div class="k">每根對準的成功率 99% 時，32 根全部對準的機率</div></div>
     <div class="n hot"><div class="v">約 20<small>%</small></div><div class="k">業界現在整顆 CPO 的良率</div></div>
   </div>
-  <div class="note rv"><b>為什麼這麼低：</b>整體良率是每一步的良率相乘，要對準的點越多、掉得越快。一個光纖陣列（FAU）不到 100 美元，對不準卻是整顆數萬美元的晶片報廢。光波導、透鏡、可拆式接頭這些設計，目的都是讓「對準」變容易。算式與計算機在<a href="#yield">第 04 章</a>。</div>
+  <div class="note rv pts"><b>為什麼這麼低：</b><span class="pnt" data-n="1">整體良率是每一步的良率相乘，要對準的點越多、掉得越快。</span><span class="pnt" data-n="2">一個光纖陣列（FAU）不到 100 美元，對不準卻是整顆數萬美元的晶片報廢。</span><span class="pnt" data-n="3">光波導、透鏡、可拆式接頭這些設計，目的都是讓「對準」變容易。</span><span class="pnt" data-n="4">算式與計算機在<a href="#yield">第 04 章</a>。</span></div>
   <p class="fn">出處：中信 2026-09-24（整體良率約 20%、FAU 與晶片成本）；72% 是 0.99 的 32 次方。</p>
 
   <details class="fold rv"><summary><span class="pm"></span>圖：光引擎的組裝步驟（CoW 製程）</summary>
@@ -888,7 +1031,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   <p class="lede">把「光引擎／光模組」從頭到尾切成幾層。發射端（Tx）：電→光；接收端（Rx）：光→電。</p>
 
   <h3 class="sub">名詞對照</h3>
-  <table class="tbl full rv">
+  <table class="tbl full rv kv">
     <thead><tr><th>名詞</th><th>意思</th></tr></thead>
     <tbody>
       <tr><td><b>PIC</b></td><td>光子晶片：處理光的晶片，裡面有波導、調變器、光偵測器（PD）</td></tr>
@@ -1142,17 +1285,17 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <figcaption><span class="fno">圖 3</span><span class="ft">光引擎內部訊號流（向量重繪版）——Tx Path：光源（Light Generation）→ 調變器（Data Writing）→ 波導 Routing → WDM 合波 → Coupler 出晶片；Rx Path 反向：Coupler → WDM 分波 → Photodetector 轉回電。橘色＝電訊號域、青色＝光訊號域</span></figcaption>
   </figure>
 
-  <table class="tbl rv">
+  <table class="tbl stack-m rv">
     <thead><tr><th>層</th><th>元件</th><th class="wrap">負責什麼</th><th class="wrap">關鍵重點 / 廠商</th></tr></thead>
     <tbody>
-      <tr><td><b>運算/交換 ASIC</b></td><td>GPU / Switch ASIC</td><td class="wrap">產生/接收高速電訊號（SerDes 56G→212G/lane）</td><td class="wrap">Broadcom 量化：53G→212G，晶片到模組的電損耗從 ~7dB 升到 22dB → 逼著改光</td></tr>
-      <tr><td><b>DSP</b></td><td>數位訊號處理器</td><td class="wrap">調變/FEC/均衡/CDR。佔光模組大部分功耗與成本</td><td class="wrap">Marvell 1.6T DSP 進 5nm→3nm。<b>LPO/CPO 的目的就是想「拿掉 DSP」省電</b></td></tr>
-      <tr><td><b>Driver</b></td><td>驅動器</td><td class="wrap">放大電壓去推調變器</td><td class="wrap">類比電路，重訊號完整性；覆晶封裝頻寬密度較高</td></tr>
-      <tr><td class="wrap"><b>PIC 光子晶片</b></td><td class="wrap">調變器+光偵測器+耦合器</td><td class="wrap">光的處理平台：把電寫進光（調變器）、把光轉回電（PD）、波導↔光纖轉換（coupler）</td><td class="wrap">台積電 COUPE、Intel、GlobalFoundries、UMC 與 HyperLight</td></tr>
-      <tr><td class="wrap"><b>外部光源 ELS</b></td><td class="wrap">CW 雷射(DFB)+隔離器+微透鏡</td><td class="wrap">矽不會發光，靠外掛三五族（InP）雷射供「連續光」。策略「1 推 N」：一顆高功率雷射推 4~8 通道</td><td class="wrap">雷射會發熱且敏感 → 外置好散熱、可維修。聯鈞、Lumentum、Coherent</td></tr>
-      <tr><td class="wrap"><b>耦光 Coupling</b></td><td class="wrap">Coupler / Grating / Edge / FAU</td><td class="wrap">晶片↔光纖三維對準、固定。<b>CPO 全鏈最貴、最沒標準化的一段</b></td><td class="wrap">佔矽光封裝+測試成本 <b>60~70%</b>（傳統 CMOS 僅 20~30%）</td></tr>
-      <tr><td class="wrap"><b>FAU / 光纖連接器</b></td><td class="wrap">Fiber Array Unit</td><td class="wrap">把多通道光訊號準確導入/導出光纖；V-groove 定位、pitch 127/250µm</td><td class="wrap">台廠 FAU：上詮、波若威、大立光、合聖</td></tr>
-      <tr><td class="wrap"><b>接收端 Rx</b></td><td class="wrap">PD→TIA→ADC→DSP</td><td class="wrap">光轉電流→放大→還原 0/1</td><td class="wrap">PD 光偵測器 + TIA 跨阻放大器</td></tr>
+      <tr><td data-label="層"><span class="cv"><b>運算/交換 ASIC</b></span></td><td data-label="元件"><span class="cv">GPU / Switch ASIC</span></td><td class="wrap" data-label="負責什麼"><span class="cv">產生/接收高速電訊號（SerDes 56G→212G/lane）</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">Broadcom 量化：53G→212G，晶片到模組的電損耗從 ~7dB 升到 22dB → 逼著改光</span></td></tr>
+      <tr><td data-label="層"><span class="cv"><b>DSP</b></span></td><td data-label="元件"><span class="cv">數位訊號處理器</span></td><td class="wrap" data-label="負責什麼"><span class="cv">調變/FEC/均衡/CDR。佔光模組大部分功耗與成本</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">Marvell 1.6T DSP 進 5nm→3nm。<b>LPO/CPO 的目的就是想「拿掉 DSP」省電</b></span></td></tr>
+      <tr><td data-label="層"><span class="cv"><b>Driver</b></span></td><td data-label="元件"><span class="cv">驅動器</span></td><td class="wrap" data-label="負責什麼"><span class="cv">放大電壓去推調變器</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">類比電路，重訊號完整性；覆晶封裝頻寬密度較高</span></td></tr>
+      <tr><td class="wrap" data-label="層"><span class="cv"><b>PIC 光子晶片</b></span></td><td class="wrap" data-label="元件"><span class="cv">調變器+光偵測器+耦合器</span></td><td class="wrap" data-label="負責什麼"><span class="cv">光的處理平台：把電寫進光（調變器）、把光轉回電（PD）、波導↔光纖轉換（coupler）</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">台積電 COUPE、Intel、GlobalFoundries、UMC 與 HyperLight</span></td></tr>
+      <tr><td class="wrap" data-label="層"><span class="cv"><b>外部光源 ELS</b></span></td><td class="wrap" data-label="元件"><span class="cv">CW 雷射(DFB)+隔離器+微透鏡</span></td><td class="wrap" data-label="負責什麼"><span class="cv">矽不會發光，靠外掛三五族（InP）雷射供「連續光」。策略「1 推 N」：一顆高功率雷射推 4~8 通道</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">雷射會發熱且敏感 → 外置好散熱、可維修。聯鈞、Lumentum、Coherent</span></td></tr>
+      <tr><td class="wrap" data-label="層"><span class="cv"><b>耦光 Coupling</b></span></td><td class="wrap" data-label="元件"><span class="cv">Coupler / Grating / Edge / FAU</span></td><td class="wrap" data-label="負責什麼"><span class="cv">晶片↔光纖三維對準、固定。<b>CPO 全鏈最貴、最沒標準化的一段</b></span></td><td class="wrap" data-label="重點／廠商"><span class="cv">佔矽光封裝+測試成本 <b>60~70%</b>（傳統 CMOS 僅 20~30%）</span></td></tr>
+      <tr><td class="wrap" data-label="層"><span class="cv"><b>FAU / 光纖連接器</b></span></td><td class="wrap" data-label="元件"><span class="cv">Fiber Array Unit</span></td><td class="wrap" data-label="負責什麼"><span class="cv">把多通道光訊號準確導入/導出光纖；V-groove 定位、pitch 127/250µm</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">台廠 FAU：上詮、波若威、大立光、合聖</span></td></tr>
+      <tr><td class="wrap" data-label="層"><span class="cv"><b>接收端 Rx</b></span></td><td class="wrap" data-label="元件"><span class="cv">PD→TIA→ADC→DSP</span></td><td class="wrap" data-label="負責什麼"><span class="cv">光轉電流→放大→還原 0/1</span></td><td class="wrap" data-label="重點／廠商"><span class="cv">PD 光偵測器 + TIA 跨阻放大器</span></td></tr>
     </tbody>
   </table>
 
@@ -1343,13 +1486,13 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
 
   <h3 class="sub">第三條路：VCSEL 與 Micro LED（寬而慢）</h3>
   <p class="lede">主流是「窄而快」：單通道 112G → 224G → 448G，功耗一路飆。「寬而慢」反過來——每通道壓到 32G 以下，用 2D 陣列堆出 3.2T 以上，換極低功耗。短期不看好，長期是機櫃內、板上互連的候選。</p>
-  <table class="tbl full rv">
+  <table class="tbl full stack-m rv">
     <thead><tr><th>光源</th><th>單通道</th><th>功耗 pJ/bit</th><th>距離</th><th>耐溫</th><th>現況</th></tr></thead>
     <tbody>
-      <tr><td><b>EML 雷射</b></td><td>200 Gb/s</td><td>&gt;5</td><td>40 km</td><td>75°C</td><td>量產</td></tr>
-      <tr><td><b>矽光（CW＋PIC）</b></td><td>200 Gb/s</td><td>5–8</td><td>2 km</td><td>75°C</td><td>量產，CPO 主流</td></tr>
-      <tr><td><b>VCSEL</b></td><td>100–200 Gb/s</td><td>&lt;1～4</td><td>50–100 m</td><td>85°C</td><td>量產（多模）</td></tr>
-      <tr><td><b>Micro LED</b></td><td>2–10 Gb/s</td><td>&lt;1～2</td><td>10–30 m</td><td>125–150°C</td><td>開發中</td></tr>
+      <tr><td data-label="光源"><span class="cv"><b>EML 雷射</b></span></td><td data-label="單通道"><span class="cv">200 Gb/s</span></td><td data-label="功耗 pJ/bit"><span class="cv">&gt;5</span></td><td data-label="距離"><span class="cv">40 km</span></td><td data-label="耐溫"><span class="cv">75°C</span></td><td data-label="現況"><span class="cv">量產</span></td></tr>
+      <tr><td data-label="光源"><span class="cv"><b>矽光（CW＋PIC）</b></span></td><td data-label="單通道"><span class="cv">200 Gb/s</span></td><td data-label="功耗 pJ/bit"><span class="cv">5–8</span></td><td data-label="距離"><span class="cv">2 km</span></td><td data-label="耐溫"><span class="cv">75°C</span></td><td data-label="現況"><span class="cv">量產，CPO 主流</span></td></tr>
+      <tr><td data-label="光源"><span class="cv"><b>VCSEL</b></span></td><td data-label="單通道"><span class="cv">100–200 Gb/s</span></td><td data-label="功耗 pJ/bit"><span class="cv">&lt;1～4</span></td><td data-label="距離"><span class="cv">50–100 m</span></td><td data-label="耐溫"><span class="cv">85°C</span></td><td data-label="現況"><span class="cv">量產（多模）</span></td></tr>
+      <tr><td data-label="光源"><span class="cv"><b>Micro LED</b></span></td><td data-label="單通道"><span class="cv">2–10 Gb/s</span></td><td data-label="功耗 pJ/bit"><span class="cv">&lt;1～2</span></td><td data-label="距離"><span class="cv">10–30 m</span></td><td data-label="耐溫"><span class="cv">125–150°C</span></td><td data-label="現況"><span class="cv">開發中</span></td></tr>
     </tbody>
   </table>
   <div class="walls rv">
@@ -1746,19 +1889,19 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     </div>
   </div>
 
-  <div class="callout rv"><span class="cl-k">對位方式決定量產成本</span>
-    <b>主動對位（Active）</b>＝一邊送光一邊移動找最強點，慢、貴、用「分鐘」計；<b>被動對位（Passive）</b>＝靠對位標記一放就準，快、可量產。<b>康寧 GlassBridge 走的是晶圓級被動對準</b>。另一個做法是放大容忍度：AIST 用透鏡把模場放大 12.5 倍，把容忍從 ±1µm 放寬到 ±12µm。耦光加 FAU 是 CPO 成本最高的一段，能做到晶圓級被動對位、損耗又低的廠商受惠最多。
+  <div class="callout rv pts"><span class="cl-k">對位方式決定量產成本</span>
+    <span class="pnt" data-n="1"><b>主動對位（Active）</b>＝一邊送光一邊移動找最強點，慢、貴、用「分鐘」計；</span><span class="pnt" data-n="2"><b>被動對位（Passive）</b>＝靠對位標記一放就準，快、可量產。</span><span class="pnt" data-n="3"><b>康寧 GlassBridge 走的是晶圓級被動對準</b>。</span><span class="pnt" data-n="4">另一個做法是放大容忍度：AIST 用透鏡把模場放大 12.5 倍，把容忍從 ±1µm 放寬到 ±12µm。</span><span class="pnt" data-n="5">耦光加 FAU 是 CPO 成本最高的一段，能做到晶圓級被動對位、損耗又低的廠商受惠最多。</span>
   </div>
 
-  <div class="why rv">
+  <div class="why rv pts2">
     <span class="big">FAU 是什麼，大立光、合聖、上詮、波若威、康寧各做哪一種</span>
-    <b>耦光是「動作」，FAU 是做這動作的「零件」。</b>把多根光纖排整齊、固定好、對準晶片的那個模組就叫 <b>FAU（Fiber Array Unit，光纖陣列單元）</b>。這幾家做的是同一段（占矽光封裝測試成本 60~70%），差別在<b>用什麼技術做 FAU</b>：<br><br>
-    · <b>大立光(3008)</b>＝精密光學路線：FA（光纖陣列）+MLA（微透鏡），靠鏡片本業把精度做到 0.3µm 以下。<br>
-    · <b>合聖(7928)</b>＝半導體路線：Detachable 2D FAU＋超穎透鏡（Meta Lens），用 12 吋 CMOS 製程做透鏡，把對位容差放寬到 ±18µm，而且可拆卸。<br>
-    · <b>上詮(3363)</b>＝老牌 FAU：專利 ReLFACon™ 把光纖連接器直接整進矽光模組。<br>
-    · <b>波若威(3163)</b>＝FAU＋分波多工（WDM）。<br>
-    · <b>康寧(GLW)</b>＝玻璃波導路線：GlassBridge 玻璃波導＋晶圓級被動對準，想<b>直接取代傳統 FAU</b>。<br><br>
-    三種做法的目標相同：<b>讓對位變便宜、變快、能量產。</b>大立光靠精度，合聖靠超穎透鏡放寬容差，康寧靠玻璃被動對準。<br>延伸：FAU 拆成零件誰做哪一格、鍍膜與濾光片 → <a href="#passive">第 08 章</a>；對位良率為什麼決定 CPO 划不划算 → <a href="#yield">第 04 章</a>。
+    <span class="pnt lead"><b>耦光是「動作」，FAU 是做這動作的「零件」。</b>把多根光纖排整齊、固定好、對準晶片的那個模組就叫 <b>FAU（Fiber Array Unit，光纖陣列單元）</b>。這幾家做的是同一段（占矽光封裝測試成本 60~70%），差別在<b>用什麼技術做 FAU</b>：</span><br><br>
+    <span class="pnt co"><span class="m-hide">· </span><b>大立光(3008)</b><span class="m-hide">＝</span>精密光學路線：FA（光纖陣列）+MLA（微透鏡），靠鏡片本業把精度做到 0.3µm 以下。</span><br>
+    <span class="pnt co"><span class="m-hide">· </span><b>合聖(7928)</b><span class="m-hide">＝</span>半導體路線：Detachable 2D FAU＋超穎透鏡（Meta Lens），用 12 吋 CMOS 製程做透鏡，把對位容差放寬到 ±18µm，而且可拆卸。</span><br>
+    <span class="pnt co"><span class="m-hide">· </span><b>上詮(3363)</b><span class="m-hide">＝</span>老牌 FAU：專利 ReLFACon™ 把光纖連接器直接整進矽光模組。</span><br>
+    <span class="pnt co"><span class="m-hide">· </span><b>波若威(3163)</b><span class="m-hide">＝</span>FAU＋分波多工（WDM）。</span><br>
+    <span class="pnt co"><span class="m-hide">· </span><b>康寧(GLW)</b><span class="m-hide">＝</span>玻璃波導路線：GlassBridge 玻璃波導＋晶圓級被動對準，想<b>直接取代傳統 FAU</b>。</span><br><br>
+    <span class="pnt lead">三種做法的目標相同：<b>讓對位變便宜、變快、能量產。</b>大立光靠精度，合聖靠超穎透鏡放寬容差，康寧靠玻璃被動對準。</span><br><span class="pnt lead">延伸：FAU 拆成零件誰做哪一格、鍍膜與濾光片 → <a href="#passive">第 08 章</a>；對位良率為什麼決定 CPO 划不划算 → <a href="#yield">第 04 章</a>。</span>
   </div>
 </section>
 
@@ -1796,7 +1939,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </div>
 
   <h3 class="sub">業界的良率鏈：為什麼只剩 20%</h3>
-  <div class="flow rv">
+  <div class="flow rv" id="ychain">
     <div class="s"><div class="p">60%</div><div class="t">EIC 疊上 PIC 晶圓</div><div class="d">最差的一步</div></div>
     <div class="s"><div class="p">98%<sup>32</sup>≈52%</div><div class="t">FAU 貼上光引擎</div><div class="d">每次 98%，一顆晶片要貼 32 次以上</div></div>
     <div class="s"><div class="p">98%</div><div class="t">光引擎＋ASIC 共封裝</div><div class="d">封到同一片載板</div></div>
@@ -1812,7 +1955,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <div class="s"><div class="p">耦合站</div><div class="t">對位、點膠、UV 固化</div><div class="d">六軸機台一邊量插損一邊找最佳位置，定位後點膠固化</div><div class="d"><span class="chip ok">第一次看到</span></div></div>
     <div class="s"><div class="p">測試站</div><div class="t">光引擎、整顆模組</div><div class="d">Insertion 3 壞的在封裝前丟掉；Insertion 4 才發現就整顆報廢</div><div class="d"><span class="chip ok">最終確認</span></div></div>
   </div>
-  <div class="note rv"><b>為什麼 FAU 廠看不到：</b>貼上之後的損耗還取決於晶片波導的光斑大小、次微米的對位誤差、UV 固化時膠收縮造成的偏移。所以 FAU 廠出貨良率漂亮，不等於 CPO 良率好；客戶真正在意的是 FAU 精度和耦合機台（機台與各道測試見第 05 章）。</div>
+  <div class="note rv pts"><b>為什麼 FAU 廠看不到：</b><span class="pnt" data-n="1">貼上之後的損耗還取決於晶片波導的光斑大小、次微米的對位誤差、UV 固化時膠收縮造成的偏移。</span><span class="pnt" data-n="2">所以 FAU 廠出貨良率漂亮，不等於 CPO 良率好；</span><span class="pnt" data-n="3">客戶真正在意的是 FAU 精度和耦合機台（機台與各道測試見第 05 章）。</span></div>
   <p class="fn">出處：元大 2026-09-03 SEMICON 參展摘要 p.5（萬潤 FAU 耦合流程）；福邦 2026-06 p.20（Insertion 1–5 分段）；中信 2026-09-24（每顆 98%）。</p>
 
   <h3 class="sub">光纖數不同，整體良率差多少</h3>
@@ -1825,8 +1968,8 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
       <tr><td><b>99.99%</b></td><td>99.7%</td><td>99.3%</td><td>96.8%</td><td>89.1%</td></tr>
     </tbody>
   </table>
-  <div class="note rv"><b>怎麼算：</b>每一根都要成功，所以把每根的成功率連乘。每根 99% 時，2 根是 0.99×0.99＝98%，10 根 90%，32 根 72.5%，69 根剩一半；1,152 根等於連續減半將近 17 次，只剩約十萬分之一。</div>
-  <div class="note rv"><b>怎麼讀：</b>1,152 根光纖就像 1,152 顆串聯的聖誕燈，一顆壞整串不亮。所以產業不會整台裝完才測，而是<b>每顆光引擎（32 根）先測好再封</b>，壞的在封裝前就丟掉；每根做到 99.9% 時，一顆光引擎的良率約 97%。</div>
+  <div class="note rv pts"><b>怎麼算：</b><span class="pnt" data-n="1">每一根都要成功，所以把每根的成功率連乘。</span><span class="pnt" data-n="2">每根 99% 時，2 根是 0.99×0.99＝98%，10 根 90%，32 根 72.5%，69 根剩一半；</span><span class="pnt" data-n="3">1,152 根等於連續減半將近 17 次，只剩約十萬分之一。</span></div>
+  <div class="note rv pts"><b>怎麼讀：</b><span class="pnt" data-n="1">1,152 根光纖就像 1,152 顆串聯的聖誕燈，一顆壞整串不亮。</span><span class="pnt" data-n="2">所以產業不會整台裝完才測，而是<b>每顆光引擎（32 根）先測好再封</b>，壞的在封裝前就丟掉；</span><span class="pnt" data-n="3">每根做到 99.9% 時，一顆光引擎的良率約 97%。</span></div>
   <p class="fn">這張表是算術，不是量測值：假設每根光纖各自獨立、全部都要成功、不能重做。實際上一個 FAU 是整排光纖一次對位，業界的實際數字見上面的良率鏈。</p>
 
   <h3 class="sub">三種解法</h3>
@@ -1876,10 +2019,10 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
     <div class="ch-no">05</div>
     <div class="ch-tt"><h2>檢測：CPO 要測五道（Insertion 1–5）</h2></div>
   </div>
-  <p class="lede">光引擎一旦和 ASIC 封在一起，<b>任何一顆光引擎有瑕疵，整顆 ASIC 就報廢</b>（一顆 3000W 的 ASIC 可能上萬美元）。所以測試從抽檢變成全檢，矽光子測試設備幾乎都要換新。目前卡在第 2、3 道（Insertion 2、3）。測試成本占矽光元件總成本約 <b>75%</b>（成熟的 InP 雷射只有 29%）。</p>
+  <p class="lede pts"><span class="pnt lead">光引擎一旦和 ASIC 封在一起，<b>任何一顆光引擎有瑕疵，整顆 ASIC 就報廢</b>（一顆 3000W 的 ASIC 可能上萬美元）。</span><span class="pnt" data-n="1">所以測試從抽檢變成全檢，矽光子測試設備幾乎都要換新。</span><span class="pnt" data-n="2">目前卡在第 2、3 道（Insertion 2、3）。</span><span class="pnt" data-n="3">測試成本占矽光元件總成本約 <b>75%</b>（成熟的 InP 雷射只有 29%）。</span></p>
 
-  <div class="callout rv"><span class="cl-k">停機成本</span>
-    512K GPU 叢集若 10% 停機，每日損失 300 萬美元；矽光模組可靠度需 FIT&lt;1（近乎零失效），所以一定要全檢。更上游還有 <b>Insertion 0／入料檢</b>：光焱(7728) 的晶圓級光學缺陷檢測在 PIC 還沒封裝前先抓瑕疵。
+  <div class="callout rv pts"><span class="cl-k">停機成本</span>
+    <span class="pnt" data-n="1">512K GPU 叢集若 10% 停機，每日損失 300 萬美元；矽光模組可靠度需 FIT&lt;1（近乎零失效），所以一定要全檢。</span><span class="pnt" data-n="2">更上游還有 <b>Insertion 0／入料檢</b>：光焱(7728) 的晶圓級光學缺陷檢測在 PIC 還沒封裝前先抓瑕疵。</span>
   </div>
 
   <div class="ins-track rv" id="insTrack"></div>
@@ -2145,7 +2288,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </div>
 
   <h3 class="sub">檢測鏈上的台廠</h3>
-  <table class="tbl full rv">
+  <table class="tbl full rv kv">
     <thead><tr><th>公司</th><th>在檢測鏈做什麼</th></tr></thead>
     <tbody>
       <tr><td><b>光焱(7728)</b></td><td>晶圓級光學缺陷檢測</td></tr>
@@ -2601,15 +2744,15 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </figure>
 
     <h3 class="sub">三種架構一張表</h3>
-  <table class="tbl full rv">
+  <table class="tbl full stack-m rv">
     <thead><tr><th></th><th>可插拔模組</th><th>NPO 近封裝</th><th>CPO 共封裝</th></tr></thead>
     <tbody>
-      <tr><td><b>光引擎放哪</b></td><td>交換器面板上</td><td>ASIC 旁邊的電路板</td><td>跟 ASIC 封在同一片載板</td></tr>
-      <tr><td><b>電要走多遠</b></td><td>15–30 cm</td><td>1–7 cm</td><td>1 cm 內</td></tr>
-      <tr><td><b>功耗</b></td><td>12–15 pJ/bit</td><td>約省一半</td><td>&lt;5 pJ/bit</td></tr>
-      <tr><td><b>壞了怎麼辦</b></td><td>直接抽換</td><td>拔掉光引擎換</td><td>很難單獨更換</td></tr>
-      <tr><td><b>光引擎誰代工</b></td><td>Tower</td><td>Tower</td><td>台積電</td></tr>
-      <tr><td><b>主力時間</b></td><td>到 2028</td><td>2027–2029</td><td>2028 以後</td></tr>
+      <tr><td data-label=""><span class="cv"><b>光引擎放哪</b></span></td><td data-label="可插拔模組"><span class="cv">交換器面板上</span></td><td data-label="NPO 近封裝"><span class="cv">ASIC 旁邊的電路板</span></td><td data-label="CPO 共封裝"><span class="cv">跟 ASIC 封在同一片載板</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>電要走多遠</b></span></td><td data-label="可插拔模組"><span class="cv">15–30 cm</span></td><td data-label="NPO 近封裝"><span class="cv">1–7 cm</span></td><td data-label="CPO 共封裝"><span class="cv">1 cm 內</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>功耗</b></span></td><td data-label="可插拔模組"><span class="cv">12–15 pJ/bit</span></td><td data-label="NPO 近封裝"><span class="cv">約省一半</span></td><td data-label="CPO 共封裝"><span class="cv">&lt;5 pJ/bit</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>壞了怎麼辦</b></span></td><td data-label="可插拔模組"><span class="cv">直接抽換</span></td><td data-label="NPO 近封裝"><span class="cv">拔掉光引擎換</span></td><td data-label="CPO 共封裝"><span class="cv">很難單獨更換</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>光引擎誰代工</b></span></td><td data-label="可插拔模組"><span class="cv">Tower</span></td><td data-label="NPO 近封裝"><span class="cv">Tower</span></td><td data-label="CPO 共封裝"><span class="cv">台積電</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>主力時間</b></span></td><td data-label="可插拔模組"><span class="cv">到 2028</span></td><td data-label="NPO 近封裝"><span class="cv">2027–2029</span></td><td data-label="CPO 共封裝"><span class="cv">2028 以後</span></td></tr>
     </tbody>
   </table>
   <p class="fn">出處：元大 2026-09-21、中信 2026-09-24。</p>
@@ -2646,13 +2789,13 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </div>
   <p class="fn">出處：群益 2026-09-23、永豐 2026-09-21、中信 2026-09-24（轉引 SemiAnalysis）、BofA／Lumentum、工研院、TrendForce。</p>
 
-  <div class="callout rv"><span class="cl-k">OIF 把資料中心網路分成三種</span>
+  <div class="callout rv pts"><span class="cl-k">OIF 把資料中心網路分成三種</span>
     <ol>
       <li><b>後端網路 BEI</b>（GPU 對 GPU，scale-out）：最先改用光，2023→2027 年市場約 3 倍。</li>
       <li><b>運算網路 CI</b>（機櫃內，scale-up）：中期跟上，比的是成本。</li>
       <li><b>前端網路 FEI</b>：已經在用，重點是互通相容。</li>
     </ol>
-    能耗門檻（OIF EEI RD-01.0，單位 pJ/bit）：<b>FEI 與 Compute-Network &lt;10、Compute-Local &lt;5</b>。實測：被動銅纜 0（1 公尺內）、LPO 約 10、CPO 約 6（含雷射），雷射外置後 CPO 本體約 4；NVIDIA 稱 CPO 交換器的能效是可插拔的 <b>3.5 倍</b>。
+    <span class="pnt lead">能耗門檻（OIF EEI RD-01.0，單位 pJ/bit）：<b>FEI 與 Compute-Network &lt;10、Compute-Local &lt;5</b>。</span><span class="pnt lead">實測：被動銅纜 0（1 公尺內）、LPO 約 10、CPO 約 6（含雷射），雷射外置後 CPO 本體約 4；</span><span class="pnt lead">NVIDIA 稱 CPO 交換器的能效是可插拔的 <b>3.5 倍</b>。</span>
   </div>
 
   <div class="callout risk rv"><span class="cl-k">反方觀點與風險</span>
@@ -2675,7 +2818,7 @@ table.tbl.stack-m .cv .chip{margin-right:4px}
   </div>
   <p class="lede">兩個陣營各推各的規格，供應商也跟著分成兩邊。</p>
 
-  <div class="svgbox rv">
+  <div class="svgbox rv m-hide">
   <svg viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NVIDIA vs OCI 陣營對決">
     <rect x="40" y="40" width="330" height="130" fill="#f2f9f5" stroke="#0c7a53" stroke-width="1.6"/>
     <text x="205" y="70" text-anchor="middle" font-size="15" font-weight="800" fill="#0c7a53" font-family="Georgia,PMingLiU,serif">NVIDIA　垂直整合</text>
