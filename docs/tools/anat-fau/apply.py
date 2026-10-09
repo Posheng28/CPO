@@ -1,6 +1,7 @@
-# 把 new.svg + new-pins.html + 說明列換進 CPO.html 的 #anatB 區塊，並同步 index.html（保留 CRLF）
-# 用法：先跑 gen.py 產 new.svg／new-pins.html，再 PYTHONUTF8=1 python apply.py；說明列文字就在下面的 legend 清單裡改
-import io, os, shutil, re
+# 把 gen.py 產的兩張圖（new-flat.svg／new-real.svg）＋ new-pins.html ＋ 說明列換進 CPO.html 的 #anatB 區塊，
+# 並把 glassbridge.svg 插在第 03 章「Edge vs Grating」小圖後面；同步 index.html（保留 CRLF）。可重跑。
+# 用法：先跑 gen.py，再 PYTHONUTF8=1 python apply.py；說明列文字就在下面的 legend 清單裡改。
+import io, os, shutil
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = HERE
 while not os.path.exists(os.path.join(ROOT, 'CPO.html')):
@@ -8,8 +9,10 @@ while not os.path.exists(os.path.join(ROOT, 'CPO.html')):
 src = io.open(os.path.join(ROOT, 'CPO.html'), encoding='utf-8', newline='').read()
 assert '\r\n' in src, 'expect CRLF'
 
-svg = io.open(os.path.join(HERE, 'new.svg'), encoding='utf-8').read().strip()
-pins = io.open(os.path.join(HERE, 'new-pins.html'), encoding='utf-8').read().strip().split('\n')
+def rd(name): return io.open(os.path.join(HERE, name), encoding='utf-8').read().strip()
+svg_flat, svg_real = rd('new-flat.svg'), rd('new-real.svg')
+pins = rd('new-pins.html').split('\n')
+gb = rd('glassbridge.svg')
 
 legend = [
     ('FAU 光纖陣列單元', '把多根光纖排整齊、固定、對準晶片的整個模組。大立光的做法：自己做 FA（光纖＋V 溝基板），買進 PMLA 微透鏡陣列與反射稜鏡，組成 FAU；客戶要求連底下的定位載板一起裝好再交貨。上詮、波若威、合聖做的也是這一塊'),
@@ -21,14 +24,31 @@ legend = [
     ('Receptacle 插座', '固定在光引擎表面的座子，讓 FAU 可以插上、拔下、換新。Senko、康寧的可拆方案都是把座子黏在晶片上；台積電 COUPE 3.0 的可拆光學插座預計 2027 年第一季'),
     ('Si 微透鏡', '刻在矽載板頂面、正對光柵的矽透鏡，晶片這一側的透鏡。把光束放大，對位容差從 ±0.5 µm 放寬到 ±10 µm、損耗 0.3 到 0.5 dB。這是台積電做在晶圓上的，不是 FAU 廠做的'),
     ('COUPE 晶片堆疊', '由下往上：封裝基板、PIC 矽光子晶片（表面有光柵耦合器 GC，正下方一層銅反射鏡把往下漏的光彈回來）、EIC 電晶片用 SoIC 疊上去（光柵正上方留開口）、Si 矽載板蓋在最上面。光從上面垂直進出，這就是 GC 光柵耦合；EC 邊緣耦合則從晶片側面進光'),
+    ('MT 接頭', 'FAU 尾端的光纖收成一條光纖帶，末端是 MT 插芯，多芯一次插上機內光纖、再走到前面板。上詮的 FAU 就是 MT 接頭、FA、透鏡三段；嘉基、Senko 做這類小型高密度接頭'),
 ]
-assert len(legend) == 9 and len(pins) == 9
+assert len(legend) == 10 and len(pins) == 10
+
+def tag_svg(svg, v, on):
+    assert svg.startswith('<svg ')
+    return svg.replace('<svg ', f'<svg data-v="{v}"{" class=\"on\"" if on else ""} ', 1)
+
+style = ('<style>#anatB .sw{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 16px 0;background:#fff}'
+         '#anatB .sw span{font-size:14.5px;color:var(--faint);letter-spacing:.08em;margin-right:4px}'
+         '#anatB .sw button{font:inherit;font-size:14.5px;font-weight:700;min-height:44px;padding:8px 18px;border:1px solid var(--rule2);background:#fff;color:var(--mut);border-radius:999px;cursor:pointer}'
+         '#anatB .sw button.on{background:var(--ink);color:#fff;border-color:var(--ink)}'
+         '#anatB .img-in>svg[data-v]{display:none}#anatB .img-in>svg.on{display:block}</style>')
+script = ('<script>(()=>{const an=document.getElementById("anatB");an.querySelectorAll(".sw button").forEach(b=>b.addEventListener("click",()=>{'
+          'an.querySelectorAll(".sw button").forEach(x=>x.classList.toggle("on",x===b));'
+          'an.querySelectorAll(".img-in>svg").forEach(s=>s.classList.toggle("on",s.dataset.v===b.dataset.v));}));})();</script>')
 
 lines = []
 lines.append('  <div class="anat rv" id="anatB">')
+lines.append('    ' + style)
+lines.append('    <div class="sw"><span>畫法</span><button type="button" class="on" data-v="flat">平面分解圖</button><button type="button" data-v="real">擬真渲染</button></div>')
 lines.append('    <div class="img-side"><div class="img-in">')
-for l in svg.split('\n'):
-    lines.append('      ' + l.strip() if l.strip() else '')
+for v, s, on in (('flat', svg_flat, True), ('real', svg_real, False)):
+    for l in tag_svg(s, v, on).split('\n'):
+        lines.append('      ' + l.strip() if l.strip() else '')
 for p in pins:
     lines.append('      ' + p.strip())
 lines.append('    </div></div>')
@@ -37,25 +57,34 @@ lines.append('      <div class="lg-h">點零件看說明</div>')
 for i, (t, d) in enumerate(legend, 1):
     lines.append(f'      <div class="lg" data-a="{i}"><span class="n">{i}</span><div><div class="t">{t}</div><div class="d">{d}</div></div></div>')
 lines.append('    </div>')
+lines.append('    ' + script)
 lines.append('  </div>')
 new_block = '\r\n'.join(lines)
 
 start = src.index('  <div class="anat rv" id="anatB">')
 end_marker = '  <div class="callout rv pts"><span class="cl-k">對位方式決定量產成本</span>'
 end = src.index(end_marker, start)
-old_block = src[start:end]
-# 舊區塊結尾應是 "  </div>\r\n\r\n"
-assert old_block.rstrip().endswith('</div>'), old_block[-80:]
 out = src[:start] + new_block + '\r\n\r\n' + src[end:]
 
-old_lede = '這就是上面那張圖的 3D 版——<b>FAU 怎麼騎在光引擎上、光在哪裡轉彎</b>。點紅點看每個零件。'
-new_lede = '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件。'
-if out.count(old_lede) == 1:
-    out = out.replace(old_lede, new_lede)
+# 導語
+old_ledes = ['這就是上面那張圖的 3D 版——<b>FAU 怎麼騎在光引擎上、光在哪裡轉彎</b>。點紅點看每個零件。',
+             '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件。']
+new_lede = '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件；上方可切換平面分解圖與擬真渲染兩種畫法。'
+for ol in old_ledes:
+    if out.count(ol) == 1: out = out.replace(ol, new_lede)
+assert out.count(new_lede) == 1, 'lede missing'
+
+# Glass Bridge 小圖：插在「Edge vs Grating」svgbox 之後（用註解當標記，可重跑）
+GB_S, GB_E = '  <!-- gb-start -->', '  <!-- gb-end -->'
+gb_block = GB_S + '\r\n  <div class="svgbox rv">\r\n' + '\r\n'.join('  ' + l if l.strip() else '' for l in gb.split('\n')) + '\r\n  </div>\r\n' + GB_E
+if GB_S in out:
+    a = out.index(GB_S); b = out.index(GB_E) + len(GB_E)
+    out = out[:a] + gb_block + out[b:]
 else:
-    assert out.count(new_lede) == 1, 'lede missing'
+    anchor = out.index('aria-label="Edge vs Grating 耦光對比"')
+    close = out.index('  </svg>\r\n  </div>\r\n', anchor) + len('  </svg>\r\n  </div>\r\n')
+    out = out[:close] + '\r\n' + gb_block + '\r\n' + out[close:]
 
 io.open(os.path.join(ROOT, 'CPO.html'), 'w', encoding='utf-8', newline='').write(out)
 shutil.copyfile(os.path.join(ROOT, 'CPO.html'), os.path.join(ROOT, 'index.html'))
-print('old block lines', old_block.count('\r\n'), '→ new block lines', new_block.count('\r\n') + 1)
-print('total lines', out.count('\r\n'), 'crlf-only:', '\n' not in out.replace('\r\n', ''))
+print('block lines', new_block.count('\r\n') + 1, '| total lines', out.count('\r\n'), '| crlf-only:', '\n' not in out.replace('\r\n', ''))

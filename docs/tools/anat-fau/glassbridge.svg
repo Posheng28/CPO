@@ -1,0 +1,33 @@
+<svg viewBox="0 0 820 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="康寧 Glass Bridge 三段式邊緣耦合">
+    <text x="410" y="26" text-anchor="middle" font-size="13" font-weight="800" fill="#1c1f26" font-family="Georgia,PMingLiU,serif">康寧 Glass Bridge：邊緣耦合的另一種接法</text>
+    <text x="410" y="42" text-anchor="middle" font-size="11" fill="#8b94a3">光斑從不到 1 µm 放大到 9 µm 分三段做，對準靠幾何、不靠機台慢慢調</text>
+    <line x1="30" y1="120" x2="790" y2="120" stroke="#e6e1d6" stroke-width="1"/>
+    <!-- ① PIC -->
+    <rect x="40" y="86" width="210" height="68" fill="#fff" stroke="#0e6e8c" stroke-width="1.4"/>
+    <text x="52" y="102" font-size="11" fill="#5d6675">PIC 晶片</text>
+    <path d="M60 120 H130 L250 112 V128 L130 120 Z" fill="#a96812" opacity="0.5"/>
+    <path d="M60 118 H132" stroke="#0e6e8c" stroke-width="3"/>
+    <path d="M250 92 l-8 5 l8 5 M250 138 l-8 5 l8 5" fill="none" stroke="#1c1f26" stroke-width="1.2"/>
+    <text x="145" y="172" text-anchor="middle" font-size="11" fill="#a96812">倒錐形波導把光斑放大</text>
+    <text x="246" y="80" text-anchor="end" font-size="10.5" fill="#5d6675">晶片邊緣的 V 溝＝對準的卡榫</text>
+    <!-- ② Glass Bridge -->
+    <rect x="270" y="78" width="290" height="84" fill="#eef7fb" stroke="#0e6e8c" stroke-width="1.4"/>
+    <text x="282" y="94" font-size="11" fill="#5d6675">玻璃橋（一塊玻璃，6.4 mm 寬）</text>
+    <path d="M270 114 C 360 112, 470 108, 560 106 L560 134 C 470 132, 360 128, 270 126 Z" fill="#0e6e8c" opacity="0.22"/>
+    <path d="M270 120 C 360 120, 470 120, 560 120" stroke="#0e6e8c" stroke-width="1.2" stroke-dasharray="4 3" fill="none"/>
+    <text x="415" y="152" text-anchor="middle" font-size="11" fill="#0e6e8c" font-weight="600">離子交換波導：尺寸與折射率慢慢變</text>
+    <text x="415" y="178" text-anchor="middle" font-size="11" fill="#a96812">晶圓級做好、放上去就準（被動對準）</text>
+    <!-- ③ 光纖端 -->
+    <rect x="582" y="98" width="56" height="44" fill="#3f3f4c" stroke="#1c1f26" stroke-width="1.2"/>
+    <text x="610" y="124" text-anchor="middle" font-size="10.5" fill="#fff" font-weight="700">TMT</text>
+    <g stroke="#7fa5b8" stroke-width="7" stroke-linecap="round"><path d="M640 108 H780 M640 120 H780 M640 132 H780"/></g>
+    <g stroke="#dceaf1" stroke-width="2.4" stroke-linecap="round"><path d="M640 108 H780 M640 120 H780 M640 132 H780"/></g>
+    <text x="700" y="172" text-anchor="middle" font-size="11" fill="#a96812">插芯物理接觸、可插拔；後面仍是光纖陣列</text>
+    <!-- 光點 -->
+    <circle r="4" fill="#b3362c"><animateMotion dur="3s" repeatCount="indefinite" path="M60 118 H250 C 360 120, 470 120, 560 120 H780"/></circle>
+    <!-- 三個數字 -->
+    <text x="145" y="214" text-anchor="middle" font-size="11" fill="#0c7a53" font-weight="600">① 光斑不到 1 µm</text>
+    <text x="415" y="214" text-anchor="middle" font-size="11" fill="#0c7a53" font-weight="600">② 24 芯、約 1.5 dB（康寧自報）</text>
+    <text x="700" y="214" text-anchor="middle" font-size="11" fill="#0c7a53" font-weight="600">③ 單模光纖 9 µm</text>
+    <text x="410" y="232" text-anchor="middle" font-size="10" fill="#8b94a3">康寧說它是 FAU 的補充、2026 年中仍在技術探索；主要配合 EC 路線，光纖那一端還是要光纖陣列</text>
+  </svg>
