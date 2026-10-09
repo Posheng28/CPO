@@ -1,4 +1,4 @@
-# 把 gen.py 產的兩張圖（new-flat.svg／new-real.svg）＋ new-pins.html ＋ 說明列換進 CPO.html 的 #anatB 區塊，
+# 把 gen.py 產的 new-real.svg ＋ new-pins.html ＋ 說明列換進 CPO.html 的 #anatB 區塊，
 # 並把 glassbridge.svg 插在第 03 章「Edge vs Grating」小圖後面；同步 index.html（保留 CRLF）。可重跑。
 # 用法：先跑 gen.py，再 PYTHONUTF8=1 python apply.py；說明列文字就在下面的 legend 清單裡改。
 import io, os, shutil
@@ -10,7 +10,7 @@ src = io.open(os.path.join(ROOT, 'CPO.html'), encoding='utf-8', newline='').read
 assert '\r\n' in src, 'expect CRLF'
 
 def rd(name): return io.open(os.path.join(HERE, name), encoding='utf-8').read().strip()
-svg_flat, svg_real = rd('new-flat.svg'), rd('new-real.svg')
+svg = rd('new-real.svg')
 pins = rd('new-pins.html').split('\n')
 gb = rd('glassbridge.svg')
 
@@ -28,27 +28,11 @@ legend = [
 ]
 assert len(legend) == 10 and len(pins) == 10
 
-def tag_svg(svg, v, on):
-    assert svg.startswith('<svg ')
-    return svg.replace('<svg ', f'<svg data-v="{v}"{" class=\"on\"" if on else ""} ', 1)
-
-style = ('<style>#anatB .sw{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 16px 0;background:#fff}'
-         '#anatB .sw span{font-size:14.5px;color:var(--faint);letter-spacing:.08em;margin-right:4px}'
-         '#anatB .sw button{font:inherit;font-size:14.5px;font-weight:700;min-height:44px;padding:8px 18px;border:1px solid var(--rule2);background:#fff;color:var(--mut);border-radius:999px;cursor:pointer}'
-         '#anatB .sw button.on{background:var(--ink);color:#fff;border-color:var(--ink)}'
-         '#anatB .img-in>svg[data-v]{display:none}#anatB .img-in>svg.on{display:block}</style>')
-script = ('<script>(()=>{const an=document.getElementById("anatB");an.querySelectorAll(".sw button").forEach(b=>b.addEventListener("click",()=>{'
-          'an.querySelectorAll(".sw button").forEach(x=>x.classList.toggle("on",x===b));'
-          'an.querySelectorAll(".img-in>svg").forEach(s=>s.classList.toggle("on",s.dataset.v===b.dataset.v));}));})();</script>')
-
 lines = []
 lines.append('  <div class="anat rv" id="anatB">')
-lines.append('    ' + style)
-lines.append('    <div class="sw"><span>畫法</span><button type="button" class="on" data-v="flat">平面分解圖</button><button type="button" data-v="real">擬真渲染</button></div>')
 lines.append('    <div class="img-side"><div class="img-in">')
-for v, s, on in (('flat', svg_flat, True), ('real', svg_real, False)):
-    for l in tag_svg(s, v, on).split('\n'):
-        lines.append('      ' + l.strip() if l.strip() else '')
+for l in svg.split('\n'):
+    lines.append('      ' + l.strip() if l.strip() else '')
 for p in pins:
     lines.append('      ' + p.strip())
 lines.append('    </div></div>')
@@ -57,7 +41,6 @@ lines.append('      <div class="lg-h">點零件看說明</div>')
 for i, (t, d) in enumerate(legend, 1):
     lines.append(f'      <div class="lg" data-a="{i}"><span class="n">{i}</span><div><div class="t">{t}</div><div class="d">{d}</div></div></div>')
 lines.append('    </div>')
-lines.append('    ' + script)
 lines.append('  </div>')
 new_block = '\r\n'.join(lines)
 
@@ -66,10 +49,10 @@ end_marker = '  <div class="callout rv pts"><span class="cl-k">對位方式決�
 end = src.index(end_marker, start)
 out = src[:start] + new_block + '\r\n\r\n' + src[end:]
 
-# 導語
+# 導語（把舊版本都換成現在這句）
 old_ledes = ['這就是上面那張圖的 3D 版——<b>FAU 怎麼騎在光引擎上、光在哪裡轉彎</b>。點紅點看每個零件。',
-             '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件。']
-new_lede = '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件；上方可切換平面分解圖與擬真渲染兩種畫法。'
+             '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件；上方可切換平面分解圖與擬真渲染兩種畫法。']
+new_lede = '這是上面那張圖的立體分解版：<b>FAU 怎麼接到光引擎上、光在哪裡轉彎、零件由下往上的順序</b>。點紅點看每個零件。'
 for ol in old_ledes:
     if out.count(ol) == 1: out = out.replace(ol, new_lede)
 assert out.count(new_lede) == 1, 'lede missing'

@@ -1,7 +1,7 @@
 # 第 03 章「立體解剖：台積電 COUPE-GC 光引擎的耦光結構」的 SVG 產生器（等角分解圖，2026-10-09 版）。
-# 跑法：PYTHONUTF8=1 python gen.py → new-flat.svg（平面分解圖）、new-real.svg（擬真渲染）、new-pins.html、preview-flat.html、preview-real.html
-#       改完再跑 apply.py 套進 CPO.html（兩張圖都放進去，頁面上有切換鈕）。
-# 場景座標：x 往右下、y 往左下、z 往上；數字都是場景單位，SCALE 控制整體縮放。兩種風格共用同一套幾何，紅點位置相同。
+# 跑法：PYTHONUTF8=1 python gen.py → new-real.svg（擬真渲染，頁面用這張）、new-pins.html、preview-real.html（可用無頭 Chrome 截圖看）
+#       改完再跑 apply.py 套進 CPO.html。MODE='flat' 的平面畫法還留著（算置中偏移用，也可自己呼叫 render('flat') 看）。
+# 場景座標：x 往右下、y 往左下、z 往上；數字都是場景單位，SCALE 控制整體縮放。
 import math, os, re, colorsys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -345,17 +345,14 @@ def render(mode, fit=True):
     return svg, pin_html
 
 def main():
-    out = {}
-    for mode in ('flat', 'real'):
-        svg, pins = render(mode, fit=(mode == 'flat'))
-        out[mode] = (svg, pins)
-        with open(os.path.join(HERE, f'new-{mode}.svg'), 'w', encoding='utf-8') as f: f.write(svg)
-    assert out['flat'][1] == out['real'][1], 'pins differ between styles'
-    with open(os.path.join(HERE, 'new-pins.html'), 'w', encoding='utf-8') as f: f.write('\n'.join(out['flat'][1]))
+    # 使用者 2026-10-09 定案只留擬真版。置中偏移仍用平面版的幾何算（沒有陰影與底圖，數字穩定），再畫擬真版。
+    render('flat', fit=True)
+    svg, pins = render('real', fit=False)
+    with open(os.path.join(HERE, 'new-real.svg'), 'w', encoding='utf-8') as f: f.write(svg)
+    with open(os.path.join(HERE, 'new-pins.html'), 'w', encoding='utf-8') as f: f.write('\n'.join(pins))
     css = ('<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#fff}.img-in{position:relative;width:900px}.img-in>svg{display:block;width:100%;height:auto}'
            '.pin{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#b3362c;color:#fff;border:2px solid #fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}')
-    for mode in ('flat', 'real'):
-        with open(os.path.join(HERE, f'preview-{mode}.html'), 'w', encoding='utf-8') as f:
-            f.write(css + '</style><div class="img-in">' + out[mode][0] + '\n' + '\n'.join(out[mode][1]) + '</div>')
+    with open(os.path.join(HERE, 'preview-real.html'), 'w', encoding='utf-8') as f:
+        f.write(css + '</style><div class="img-in">' + svg + '\n' + '\n'.join(pins) + '</div>')
 
 main()
