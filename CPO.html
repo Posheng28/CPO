@@ -2306,12 +2306,12 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
   </div>
 
   <figure class="plate rv">
-    <div class="svgbox" style="border:none;margin:0;padding:0"><svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
-  <rect x="0" y="0" width="900" height="620" fill="#ffffff"/>
+    <div class="svgbox" style="border:none;margin:0;padding:0"><svg viewBox="0 0 900 794" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+  <rect x="0" y="0" width="900" height="794" fill="#ffffff"/>
 
   <!-- main title -->
-  <text x="450" y="30" text-anchor="middle" font-family="Georgia,'PMingLiU',serif" font-size="16" font-weight="bold" fill="#1c1f26">光收發封裝形態三代演進</text>
-  <text x="450" y="50" text-anchor="middle" font-size="10.5" fill="#8b94a3">Pluggable Transceiver → On-Board Optics → Co-Packaged Optics（CPO）</text>
+  <text x="450" y="30" text-anchor="middle" font-family="Georgia,'PMingLiU',serif" font-size="16" font-weight="bold" fill="#1c1f26">光收發封裝形態四階段演進</text>
+  <text x="450" y="50" text-anchor="middle" font-size="10.5" fill="#8b94a3">Pluggable Transceiver → On-Board Optics → Near-Packaged Optics（NPO）→ Co-Packaged Optics（CPO）</text>
 
   <!-- ============ ROW 1 : Pluggable ============ -->
   <circle cx="52" cy="78" r="11" fill="#1c1f26"/>
@@ -2407,64 +2407,130 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
   <line x1="450" y1="388" x2="450" y2="400" stroke="#8b94a3" stroke-width="1.5"/>
   <polygon points="444,399 456,399 450,409" fill="#8b94a3"/>
 
-  <!-- ============ ROW 3 : co-Packaging Optics ============ -->
+  <!-- ============ ROW 3 : Near-Packaged Optics ============ -->
   <circle cx="52" cy="426" r="11" fill="#1c1f26"/>
   <text x="52" y="430" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">3</text>
-  <text x="70" y="430" font-size="13" font-weight="bold" fill="#1c1f26">co-Packaging Optics 共同封裝光學（CPO）</text>
-  <text x="872" y="430" text-anchor="end" font-size="10.5" fill="#5d6675">光電同一封裝·相對功耗 ≈1×</text>
+  <text x="70" y="430" font-size="13" font-weight="bold" fill="#1c1f26">Near-Packaged Optics 近封裝光學（NPO）</text>
+  <text x="872" y="430" text-anchor="end" font-size="10.5" fill="#5d6675">光引擎插在 ASIC 旁的插座·壞了可拔換</text>
 
   <!-- board -->
-  <rect x="100" y="532" width="540" height="24" fill="#d9ece5" stroke="#0c7a53" stroke-width="1.2"/>
-  <text x="110" y="548" font-size="10.5" fill="#0c7a53">System Board 系統板</text>
+  <rect x="100" y="518" width="540" height="24" fill="#d9ece5" stroke="#0c7a53" stroke-width="1.2"/>
+  <text x="110" y="534" font-size="10.5" fill="#0c7a53">System Board 系統板</text>
 
-  <!-- package substrate -->
-  <rect x="150" y="472" width="320" height="60" rx="2" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
-  <text x="310" y="526" text-anchor="middle" font-size="10.5" fill="#8b94a3">Package Substrate 封裝基板</text>
+  <!-- ASIC on its own substrate -->
+  <rect x="262" y="506" width="96" height="12" fill="#e7e2d6" stroke="#b3ab99" stroke-width="1"/>
+  <rect x="277" y="470" width="66" height="36" rx="2" fill="#1c1f26"/>
+  <text x="310" y="493" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">ASIC</text>
 
-  <!-- OE engines + ASIC -->
-  <rect x="172" y="484" width="34" height="28" rx="2" fill="#0e6e8c"/>
-  <text x="189" y="502" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
-  <rect x="214" y="484" width="34" height="28" rx="2" fill="#0e6e8c"/>
-  <text x="231" y="502" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
-  <rect x="275" y="478" width="70" height="36" rx="2" fill="#1c1f26"/>
-  <text x="310" y="500" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">ASIC</text>
-  <rect x="372" y="484" width="34" height="28" rx="2" fill="#0e6e8c"/>
-  <text x="389" y="502" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
-  <rect x="414" y="484" width="34" height="28" rx="2" fill="#0e6e8c"/>
-  <text x="431" y="502" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <!-- sockets on the system board, OE modules plugged in -->
+  <rect x="128" y="502" width="88" height="16" fill="#ffffff" stroke="#a96812" stroke-width="1.4"/>
+  <text x="172" y="514" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#a96812">Socket 插座</text>
+  <rect x="404" y="502" width="88" height="16" fill="#ffffff" stroke="#a96812" stroke-width="1.4"/>
+  <text x="448" y="514" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#a96812">Socket 插座</text>
+  <rect x="134" y="474" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="151" y="492" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="176" y="474" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="193" y="492" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="410" y="474" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="427" y="492" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="452" y="474" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="469" y="492" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
 
-  <!-- shortest electrical links -->
-  <line x1="256" y1="498" x2="273" y2="498" stroke="#a96812" stroke-width="3"/>
-  <polygon points="258,494 250,498 258,502" fill="#a96812"/>
-  <line x1="347" y1="498" x2="362" y2="498" stroke="#a96812" stroke-width="3"/>
-  <polygon points="362,494 370,498 362,502" fill="#a96812"/>
-  <text x="310" y="464" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#a96812">電路徑：最短</text>
-  <line x1="285" y1="468" x2="258" y2="490" stroke="#a96812" stroke-width="0.8"/>
-  <line x1="335" y1="468" x2="362" y2="490" stroke="#a96812" stroke-width="0.8"/>
+  <!-- short electrical links across the board -->
+  <line x1="226" y1="511" x2="260" y2="511" stroke="#a96812" stroke-width="3"/>
+  <polygon points="226,507 218,511 226,515" fill="#a96812"/>
+  <line x1="360" y1="511" x2="394" y2="511" stroke="#a96812" stroke-width="3"/>
+  <polygon points="394,507 402,511 394,515" fill="#a96812"/>
+  <text x="310" y="458" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#a96812">電路徑：短</text>
+  <line x1="277" y1="462" x2="240" y2="504" stroke="#a96812" stroke-width="0.8"/>
+  <line x1="343" y1="462" x2="380" y2="504" stroke="#a96812" stroke-width="0.8"/>
+  <circle r="2.6" fill="#a96812">
+    <animateMotion dur="1.4s" repeatCount="indefinite" path="M258,511 L228,511"/>
+  </circle>
+  <circle r="2.6" fill="#a96812">
+    <animateMotion dur="1.4s" repeatCount="indefinite" path="M362,511 L392,511"/>
+  </circle>
 
-  <!-- fibers straight out of package -->
-  <line x1="172" y1="498" x2="84" y2="498" stroke="#0e6e8c" stroke-width="1.6"/>
-  <circle cx="78" cy="498" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
-  <line x1="448" y1="498" x2="700" y2="498" stroke="#0e6e8c" stroke-width="1.6"/>
-  <circle cx="714" cy="498" r="13" fill="none" stroke="#0e6e8c" stroke-width="1.6"/>
-  <line x1="727" y1="498" x2="760" y2="498" stroke="#0e6e8c" stroke-width="1.6"/>
-  <circle cx="766" cy="498" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+  <!-- fibers out of the OE modules -->
+  <line x1="134" y1="488" x2="84" y2="488" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="78" cy="488" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+  <line x1="486" y1="488" x2="700" y2="488" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="714" cy="488" r="13" fill="none" stroke="#0e6e8c" stroke-width="1.6"/>
+  <line x1="727" y1="488" x2="760" y2="488" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="766" cy="488" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
   <circle r="2.6" fill="#0e6e8c">
-    <animateMotion dur="2.8s" repeatCount="indefinite" path="M448,498 H700 A13 13 0 0 1 727 498 H758"/>
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M486,488 H700 A13 13 0 0 1 727 488 H758"/>
   </circle>
   <circle r="2.6" fill="#0e6e8c">
-    <animateMotion dur="1.8s" repeatCount="indefinite" path="M172,498 L86,498"/>
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M134,488 L86,488"/>
   </circle>
 
   <!-- faceplate -->
-  <line x1="654" y1="476" x2="654" y2="564" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
-  <text x="654" y="470" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+  <line x1="654" y1="456" x2="654" y2="546" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="654" y="450" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+
+  <!-- transition arrow -->
+  <line x1="450" y1="562" x2="450" y2="574" stroke="#8b94a3" stroke-width="1.5"/>
+  <polygon points="444,573 456,573 450,583" fill="#8b94a3"/>
+
+  <!-- ============ ROW 4 : co-Packaging Optics ============ -->
+  <circle cx="52" cy="600" r="11" fill="#1c1f26"/>
+  <text x="52" y="604" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">4</text>
+  <text x="70" y="604" font-size="13" font-weight="bold" fill="#1c1f26">co-Packaging Optics 共同封裝光學（CPO）</text>
+  <text x="872" y="604" text-anchor="end" font-size="10.5" fill="#5d6675">光電同一封裝·相對功耗 ≈1×</text>
+
+  <!-- board -->
+  <rect x="100" y="706" width="540" height="24" fill="#d9ece5" stroke="#0c7a53" stroke-width="1.2"/>
+  <text x="110" y="722" font-size="10.5" fill="#0c7a53">System Board 系統板</text>
+
+  <!-- package substrate -->
+  <rect x="150" y="646" width="320" height="60" rx="2" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+  <text x="310" y="700" text-anchor="middle" font-size="10.5" fill="#8b94a3">Package Substrate 封裝基板</text>
+
+  <!-- OE engines + ASIC -->
+  <rect x="172" y="658" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="189" y="676" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="214" y="658" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="231" y="676" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="275" y="652" width="70" height="36" rx="2" fill="#1c1f26"/>
+  <text x="310" y="674" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">ASIC</text>
+  <rect x="372" y="658" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="389" y="676" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+  <rect x="414" y="658" width="34" height="28" rx="2" fill="#0e6e8c"/>
+  <text x="431" y="676" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">OE</text>
+
+  <!-- shortest electrical links -->
+  <line x1="256" y1="672" x2="273" y2="672" stroke="#a96812" stroke-width="3"/>
+  <polygon points="258,668 250,672 258,676" fill="#a96812"/>
+  <line x1="347" y1="672" x2="362" y2="672" stroke="#a96812" stroke-width="3"/>
+  <polygon points="362,668 370,672 362,676" fill="#a96812"/>
+  <text x="310" y="638" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#a96812">電路徑：最短</text>
+  <line x1="285" y1="642" x2="258" y2="664" stroke="#a96812" stroke-width="0.8"/>
+  <line x1="335" y1="642" x2="362" y2="664" stroke="#a96812" stroke-width="0.8"/>
+
+  <!-- fibers straight out of package -->
+  <line x1="172" y1="672" x2="84" y2="672" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="78" cy="672" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+  <line x1="448" y1="672" x2="700" y2="672" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="714" cy="672" r="13" fill="none" stroke="#0e6e8c" stroke-width="1.6"/>
+  <line x1="727" y1="672" x2="760" y2="672" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle cx="766" cy="672" r="4.5" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+  <circle r="2.6" fill="#0e6e8c">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M448,672 H700 A13 13 0 0 1 727 672 H758"/>
+  </circle>
+  <circle r="2.6" fill="#0e6e8c">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M172,672 L86,672"/>
+  </circle>
+
+  <!-- faceplate -->
+  <line x1="654" y1="650" x2="654" y2="738" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="654" y="644" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
 
   <!-- bottom key message -->
-  <rect x="285" y="576" width="330" height="26" rx="13" fill="#faf6ec" stroke="#d3ccbc" stroke-width="1"/>
-  <text x="450" y="593" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b3362c">核心趨勢：電的路徑一代比一代短</text>
+  <rect x="285" y="750" width="330" height="26" rx="13" fill="#faf6ec" stroke="#d3ccbc" stroke-width="1"/>
+  <text x="450" y="767" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#b3362c">核心趨勢：電的路徑一代比一代短</text>
 </svg></div>
-    <figcaption><span class="fno">圖 9</span><span class="ft">三代封裝結構——可插拔（電路徑長）→ 板上光學 OBO（中）→ CPO 共封裝（最短）；重點是電的路徑一代比一代短</span></figcaption>
+    <figcaption><span class="fno">圖 9</span><span class="ft">四種封裝結構——可插拔（電路徑長）→ 板上光學 OBO（中）→ NPO 近封裝（短）→ CPO 共封裝（最短）；重點是電的路徑一代比一代短</span></figcaption>
   </figure>
 
   <div class="callout rv"><span class="cl-k">省電對照<span class="cite">（福邦/IEK）</span></span>
