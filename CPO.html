@@ -2753,6 +2753,19 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
   </table>
   <p class="fn cite">出處：富邦 2026-11-03、永豐 2026-09-21、中信 2026-09-24 與 10-05、元大 2026-08、凱基 2026-08-26（統新法說）、大立光 2026-10-08 法說、NVIDIA 技術部落格 2025-08-26。</p>
 
+  <h3 class="sub">FAU 在 NPO 與 CPO 差在哪</h3>
+  <p class="note rv"><b>FAU 的光學規格兩邊一樣，差在它接上去的地方。</b>大立光在法說上說，兩者只是封裝位置與型態不同，FAU 的規格與生產難度差異不大。走 VCSEL 的 NPO 用多模光纖，不在此列。</p>
+  <table class="tbl full stack-m rv">
+    <thead><tr><th></th><th>NPO 的 FAU</th><th>CPO 的 FAU</th></tr></thead>
+    <tbody>
+      <tr><td data-label=""><span class="cv"><b>接在哪</b></span></td><td data-label="NPO 的 FAU"><span class="cv">獨立的光引擎模組上</span></td><td data-label="CPO 的 FAU"><span class="cv">跟 ASIC 封在同一片載板的光引擎上</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>要不要做成可拆</b></span></td><td data-label="NPO 的 FAU"><span class="cv">不一定，壞了整顆模組拔下來換</span></td><td data-label="CPO 的 FAU"><span class="cv">多半要；不做可拆的，要撐得住回焊</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>貼壞賠多少</b></span></td><td data-label="NPO 的 FAU"><span class="cv">一顆模組</span></td><td data-label="CPO 的 FAU"><span class="cv">整顆 ASIC 封裝，數萬美元</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>接幾條光纖</b></span></td><td data-label="NPO 的 FAU"><span class="cv">一顆模組 32 芯以上</span></td><td data-label="CPO 的 FAU"><span class="cv">一個封裝約 1,024 條<small>NVIDIA Spectrum-X：32 顆光引擎，每顆 32 條</small></span></td></tr>
+    </tbody>
+  </table>
+  <p class="fn cite">出處：大立光 2026-10-08 法說、永豐 2026-09-21、NVIDIA 技術部落格 2025-08-26、群益 2026-09-23、康寧 Glass Bridge 手冊。</p>
+
   <h3 class="sub">NPO 比 CPO 先放量</h3>
   <div class="nums rv">
     <div class="n"><div class="v">1.46<small> 億個</small></div><div class="k">2027 年 400G 以上可插拔光模組</div></div>
