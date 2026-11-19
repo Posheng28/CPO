@@ -1,0 +1,170 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NPO 光引擎模組的四種做法" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+<text x="450" y="30" text-anchor="middle" font-family="Georgia,'PMingLiU',serif" font-size="16" font-weight="bold" fill="#1c1f26">NPO 光引擎模組的四種做法</text>
+<text x="450" y="50" text-anchor="middle" font-size="11.5" fill="#8b94a3">兩個選擇：雷射放模組外面或裡面；光偵測器（PD）做進矽光晶片或另外貼一顆。模組都插在 ASIC 旁的插座上</text>
+<text x="295" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#0e6e8c">PD 做進矽光晶片（鍺 PD）</text>
+<text x="695" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#5e46a0">PD 另外貼一顆（三五族）</text>
+<text x="50" y="190" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">雷射</text>
+<text x="50" y="209" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">外置</text>
+<text x="50" y="230" text-anchor="middle" font-size="11" fill="#8b94a3">插在面板的</text>
+<text x="50" y="245" text-anchor="middle" font-size="11" fill="#8b94a3">ELSFP</text>
+<text x="50" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">雷射</text>
+<text x="50" y="449" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">內建</text>
+<text x="50" y="470" text-anchor="middle" font-size="11" fill="#8b94a3">晶片貼在</text>
+<text x="50" y="485" text-anchor="middle" font-size="11" fill="#8b94a3">模組裡</text>
+<!-- 1 外置雷射＋整合 PD -->
+<rect x="100" y="90" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="122" cy="114" r="11" fill="#1c1f26"/>
+<text x="122" y="118" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">1</text>
+<text x="140" y="119" font-size="13.5" font-weight="bold" fill="#1c1f26">外置雷射＋整合 PD</text>
+<text x="478" y="119" text-anchor="end" font-size="11.5" fill="#5d6675">例：阿里雲 3.2T 矽光版</text>
+<text x="122" y="146" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="122" y="152" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="134" y="174" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="134" y="220" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="198" y="178" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="241" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="241" y="215" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="182" y1="189" x2="198" y2="189" stroke="#5d6675" stroke-width="2"/>
+<rect x="204" y="224" width="44" height="22" rx="2" fill="#ffffff"/>
+<text x="226" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#0e6e8c">鍺 PD</text>
+<line x1="182" y1="235" x2="204" y2="235" stroke="#5d6675" stroke-width="2"/>
+<text x="294" y="180" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="284" y="186" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="362" y="192" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="422" y="146" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="422" y1="152" x2="422" y2="286" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="304" y1="200" x2="418" y2="200" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="200" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="304" y1="216" x2="418" y2="216" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="216" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M304,200 L418,200"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M418,216 L304,216"/></circle>
+<path d="M400,257 L330,257 L314,242 L284,242" fill="none" stroke="#c9483d" stroke-width="1.8"/>
+<rect x="400" y="240" width="74" height="34" rx="3" fill="#fbeeec" stroke="#b3362c" stroke-width="1.3"/>
+<text x="437" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8f2a22">ELSFP</text>
+<text x="437" y="268" text-anchor="middle" font-size="10.5" fill="#8f2a22">雷射模組</text>
+<text x="367" y="251" text-anchor="middle" font-size="11" fill="#8f2a22">保偏光纖</text>
+<circle r="2.8" fill="#c9483d"><animateMotion dur="2.2s" repeatCount="indefinite" path="M400,257 L330,257 L314,242 L284,242"/></circle>
+<text x="122" y="304" font-size="11.5" fill="#5d6675">接出的光纖：訊號＋光源　　雷射壞了：換面板上的 ELSFP</text>
+<!-- 2 外置雷射＋獨立 PD -->
+<rect x="500" y="90" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="522" cy="114" r="11" fill="#1c1f26"/>
+<text x="522" y="118" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">2</text>
+<text x="540" y="119" font-size="13.5" font-weight="bold" fill="#1c1f26">外置雷射＋獨立 PD</text>
+<text x="878" y="119" text-anchor="end" font-size="11.5" fill="#5d6675">高速、長距離設計</text>
+<text x="522" y="146" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="522" y="152" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="534" y="174" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="534" y="220" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="598" y="178" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="641" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="641" y="215" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="582" y1="189" x2="598" y2="189" stroke="#5d6675" stroke-width="2"/>
+<line x1="582" y1="235" x2="590" y2="235" stroke="#5d6675" stroke-width="2"/>
+<rect x="590" y="223" width="34" height="24" rx="2" fill="#7a5cb8" stroke="#ffffff" stroke-width="1.5"/>
+<text x="607" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">PD</text>
+<text x="694" y="180" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="684" y="186" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="762" y="192" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="822" y="146" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="822" y1="152" x2="822" y2="286" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="704" y1="200" x2="818" y2="200" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="200" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="704" y1="216" x2="818" y2="216" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="216" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M704,200 L818,200"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M818,216 L704,216"/></circle>
+<path d="M800,257 L730,257 L714,242 L684,242" fill="none" stroke="#c9483d" stroke-width="1.8"/>
+<rect x="800" y="240" width="74" height="34" rx="3" fill="#fbeeec" stroke="#b3362c" stroke-width="1.3"/>
+<text x="837" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8f2a22">ELSFP</text>
+<text x="837" y="268" text-anchor="middle" font-size="10.5" fill="#8f2a22">雷射模組</text>
+<text x="767" y="251" text-anchor="middle" font-size="11" fill="#8f2a22">保偏光纖</text>
+<circle r="2.8" fill="#c9483d"><animateMotion dur="2.2s" repeatCount="indefinite" path="M800,257 L730,257 L714,242 L684,242"/></circle>
+<text x="522" y="304" font-size="11.5" fill="#5d6675">接出的光纖：訊號＋光源　　雷射壞了：換面板上的 ELSFP</text>
+<!-- 3 內建雷射＋整合 PD -->
+<rect x="100" y="330" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="122" cy="354" r="11" fill="#1c1f26"/>
+<text x="122" y="358" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">3</text>
+<text x="140" y="359" font-size="13.5" font-weight="bold" fill="#1c1f26">內建雷射＋整合 PD</text>
+<text x="478" y="359" text-anchor="end" font-size="11.5" fill="#5d6675">模組較大，雷射的熱在模組裡</text>
+<text x="122" y="386" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="122" y="392" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="134" y="414" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="433" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="134" y="460" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="198" y="418" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="241" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="241" y="455" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="182" y1="429" x2="198" y2="429" stroke="#5d6675" stroke-width="2"/>
+<rect x="204" y="464" width="44" height="22" rx="2" fill="#ffffff"/>
+<text x="226" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#0e6e8c">鍺 PD</text>
+<line x1="182" y1="475" x2="204" y2="475" stroke="#5d6675" stroke-width="2"/>
+<text x="294" y="420" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="284" y="426" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="362" y="432" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="422" y="386" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="422" y1="392" x2="422" y2="526" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="304" y1="440" x2="418" y2="440" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="440" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="304" y1="456" x2="418" y2="456" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="456" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M304,440 L418,440"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M418,456 L304,456"/></circle>
+<rect x="212" y="398" width="58" height="18" rx="2" fill="#b3362c"/>
+<text x="241" y="411" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">雷射晶片</text>
+<circle r="2.4" fill="#ffd9a8"><animateMotion dur="1.2s" repeatCount="indefinite" path="M241,414 L241,430"/></circle>
+<rect x="400" y="480" width="74" height="34" rx="3" fill="none" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="437" y="501" text-anchor="middle" font-size="10.5" fill="#8b94a3">不用外置雷射</text>
+<text x="122" y="544" font-size="11.5" fill="#5d6675">接出的光纖：只有訊號　　雷射壞了：換整顆模組</text>
+<!-- 4 內建雷射＋獨立 PD -->
+<rect x="500" y="330" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="522" cy="354" r="11" fill="#1c1f26"/>
+<text x="522" y="358" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">4</text>
+<text x="540" y="359" font-size="13.5" font-weight="bold" fill="#1c1f26">內建雷射＋獨立 PD</text>
+<text x="878" y="359" text-anchor="end" font-size="11.5" fill="#5d6675">晶片最多，較少見</text>
+<text x="522" y="386" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="522" y="392" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="534" y="414" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="433" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="534" y="460" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="598" y="418" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="641" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="641" y="455" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="582" y1="429" x2="598" y2="429" stroke="#5d6675" stroke-width="2"/>
+<line x1="582" y1="475" x2="590" y2="475" stroke="#5d6675" stroke-width="2"/>
+<rect x="590" y="463" width="34" height="24" rx="2" fill="#7a5cb8" stroke="#ffffff" stroke-width="1.5"/>
+<text x="607" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">PD</text>
+<text x="694" y="420" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="684" y="426" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="762" y="432" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="822" y="386" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="822" y1="392" x2="822" y2="526" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="704" y1="440" x2="818" y2="440" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="440" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="704" y1="456" x2="818" y2="456" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="456" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M704,440 L818,440"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M818,456 L704,456"/></circle>
+<rect x="612" y="398" width="58" height="18" rx="2" fill="#b3362c"/>
+<text x="641" y="411" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">雷射晶片</text>
+<circle r="2.4" fill="#ffd9a8"><animateMotion dur="1.2s" repeatCount="indefinite" path="M641,414 L641,430"/></circle>
+<rect x="800" y="480" width="74" height="34" rx="3" fill="none" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="837" y="501" text-anchor="middle" font-size="10.5" fill="#8b94a3">不用外置雷射</text>
+<text x="522" y="544" font-size="11.5" fill="#5d6675">接出的光纖：只有訊號　　雷射壞了：換整顆模組</text>
+<rect x="100" y="571" width="12" height="12" fill="#0e6e8c"/>
+<text x="118" y="582" font-size="11.5" fill="#5d6675">光：矽光晶片、訊號光纖</text>
+<rect x="270" y="571" width="12" height="12" fill="#1c1f26"/>
+<text x="288" y="582" font-size="11.5" fill="#5d6675">電晶片</text>
+<rect x="348" y="571" width="12" height="12" fill="#b3362c"/>
+<text x="366" y="582" font-size="11.5" fill="#5d6675">雷射（外置時經保偏光纖送光）</text>
+<rect x="553" y="571" width="12" height="12" fill="#7a5cb8"/>
+<text x="571" y="582" font-size="11.5" fill="#5d6675">獨立 PD</text>
+<text x="890" y="582" text-anchor="end" font-size="11" fill="#8b94a3">示意圖，非實際比例與擺放位置</text>
+</svg>

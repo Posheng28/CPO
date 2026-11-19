@@ -1468,13 +1468,21 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
   </div>
   <p class="lede">同一個功能，業界有好幾種做法並存。每個環節走哪一條路，受惠的供應商就不同。</p>
 
-  <h3 class="sub">雷射光源：整合 vs 外置</h3>
-  <div class="routes rv">
+  <h3 class="sub">雷射光源：外置、放進模組、做進晶片</h3>
+  <div class="routes three rv">
     <div class="route" style="--rc:#0e6e8c">
       <h4>外置式 ELS / ELSFP（主流）</h4>
       <div class="r-row"><span class="k">做法</span><span class="v">雷射拉出封裝、放模組外，保偏光纖（PMF）導光進來</span></div>
       <div class="r-row"><span class="k">優點</span><span class="v">熱管理好、可熱插拔維修、可靠度高</span></div>
+      <div class="r-row"><span class="k">代價</span><span class="v">要分光：Open CPX 規格裡，一條雷射光纖至少要分給 3 或 4 個發射通道（依模組通道數），雷射功率要夠大，還要扣掉分光損耗</span></div>
       <div class="r-row"><span class="k">廠商</span><span class="v">NVIDIA、OCI 陣營、聯鈞(3450)、Lumentum、Coherent</span></div>
+    </div>
+    <div class="route" style="--rc:#a96812">
+      <h4>模組內建（雷射貼在矽光晶片旁）</h4>
+      <div class="r-row"><span class="k">做法</span><span class="v">雷射晶片先貼在小載台上（CoS），整組放進光引擎模組，從側邊把光打進矽光晶片</span></div>
+      <div class="r-row"><span class="k">優點</span><span class="v">省掉保偏光纖與面板上的雷射插槽，光路最短</span></div>
+      <div class="r-row"><span class="k">缺點</span><span class="v">模組變大、雷射的熱留在模組裡；雷射壞了要換整顆模組</span></div>
+      <div class="r-row"><span class="k">廠商</span><span class="v">Coherent：把高功率 CW 雷射列為這種 NPO 的光源；這類雷射目前每月出貨數百萬顆，對象是可插拔模組</span></div>
     </div>
     <div class="route" style="--rc:#7a5cb8">
       <h4>整合式（雷射做進矽光晶片）</h4>
@@ -1483,6 +1491,7 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
       <div class="r-row"><span class="k">缺點</span><span class="v">混合製程、雷射可靠度較差；廠商：Intel、Dust Photonics（被 Credo 併）</span></div>
     </div>
   </div>
+  <p class="fn cite">出處：Simple Tech Trend〈看懂 NPO 近封裝光學〉2026-11、〈Open CPX 1.0 拆解〉2026-09-18（Open CPX MSA 規格 Rev 1.0，2026-09-16：16／18／32／36 通道的模組，外置雷射光纖上限 4／6／8／12 條）；Coherent 的說法見 Futurum 2026-09-23（PhotonLink 發表會 2026-09-21）。</p>
 
     <div class="note rv"><b>矽光子為什麼會贏 EML：成本。</b>1.6T 模組的光源，矽光方案用 4 顆 CW 雷射約 US$24，EML 方案要 8 顆約 US$160–200；矽光占光模組金額 2025 年 28% → 2028 年 62%。<span class="fn-in cite">高盛、Cignal，永豐 2026-09 轉引</span></div>
 
@@ -1742,6 +1751,26 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
     <figcaption><span class="fno">圖 5</span><span class="ft">三種調變器示意與規格對照——MZM 大而穩、MRM 微小省電但要 TEC 恆溫（僅 NVIDIA 量產）、EAM 小而線性差</span></figcaption>
   </figure>
   </details>
+
+  <h3 class="sub">光偵測器（把光變回電）：做進晶片 vs 另外貼一顆</h3>
+  <div class="routes rv">
+    <div class="route" style="--rc:#0e6e8c">
+      <h4>整合式（鍺 PD 做在矽光晶片上）</h4>
+      <div class="r-row"><span class="k">做法</span><span class="v">在矽光製程裡直接長一層鍺（Ge），光偵測器（PD）就做在 PIC 上</span></div>
+      <div class="r-row"><span class="k">優點</span><span class="v">不用多貼一顆晶片，通道密度高、成本低；對位在晶圓製程裡就完成</span></div>
+      <div class="r-row"><span class="k">現況</span><span class="v">矽光 NPO 的主流做法（例：阿里雲 3.2T 用收發一體的矽光晶片）</span></div>
+      <div class="r-row"><span class="k">價值</span><span class="v">集中在矽光代工</span></div>
+    </div>
+    <div class="route" style="--rc:#7a5cb8">
+      <h4>獨立式（三五族 PD 另外貼）</h4>
+      <div class="r-row"><span class="k">做法</span><span class="v">用三五族材料（多半是 InGaAs）另做一顆 PD 晶片，覆晶貼到 PIC 或基板上</span></div>
+      <div class="r-row"><span class="k">優點</span><span class="v">響應度與暗電流表現一般比鍺好，速率往上推時餘裕較大</span></div>
+      <div class="r-row"><span class="k">缺點</span><span class="v">多一道貼合、多一次對位、多一個良率環節</span></div>
+      <div class="r-row"><span class="k">現況</span><span class="v">常見於追求更高速率或更長距離的設計</span></div>
+      <div class="r-row"><span class="k">價值</span><span class="v">三五族 PD 廠也分得到</span></div>
+    </div>
+  </div>
+  <p class="fn cite">出處：Simple Tech Trend〈看懂 NPO 近封裝光學〉2026-11；阿里雲基礎設施（半導體行業觀察 2026-03-01 轉載：3.2T NPO 用兩顆 16 通道收發一體矽光晶片；歸為 PD 整合是 Simple Tech Trend 的判讀）。</p>
 
   <h3 class="sub">耦光（光纖接晶片）：兩大路線＋對位方式</h3>
 
@@ -2831,6 +2860,204 @@ table.tbl.num thead th{letter-spacing:0;font-size:13px}
     </tbody>
   </table>
   <p class="fn cite">出處：大立光 2026-10-08 法說、永豐 2026-09-21、NVIDIA 技術部落格 2025-08-26、群益 2026-09-23、康寧 Glass Bridge 手冊。</p>
+
+  <h3 class="sub">NPO 模組的四種做法：雷射放哪、PD 做在哪</h3>
+  <p class="note rv"><b>同樣叫 3.2T 或 6.4T 的 NPO，裡面的零件可以差很多。</b>差在兩個選擇：雷射放模組外面還是裡面，光偵測器（PD）做進矽光晶片還是另外貼一顆（各自的優缺點見第 03 章）。</p>
+  <div class="svgbox rv">
+<!-- npo4-start -->
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NPO 光引擎模組的四種做法" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+<rect x="0" y="0" width="900" height="600" fill="#ffffff"/>
+<text x="450" y="30" text-anchor="middle" font-family="Georgia,'PMingLiU',serif" font-size="16" font-weight="bold" fill="#1c1f26">NPO 光引擎模組的四種做法</text>
+<text x="450" y="50" text-anchor="middle" font-size="11.5" fill="#8b94a3">兩個選擇：雷射放模組外面或裡面；光偵測器（PD）做進矽光晶片或另外貼一顆。模組都插在 ASIC 旁的插座上</text>
+<text x="295" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#0e6e8c">PD 做進矽光晶片（鍺 PD）</text>
+<text x="695" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#5e46a0">PD 另外貼一顆（三五族）</text>
+<text x="50" y="190" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">雷射</text>
+<text x="50" y="209" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">外置</text>
+<text x="50" y="230" text-anchor="middle" font-size="11" fill="#8b94a3">插在面板的</text>
+<text x="50" y="245" text-anchor="middle" font-size="11" fill="#8b94a3">ELSFP</text>
+<text x="50" y="430" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">雷射</text>
+<text x="50" y="449" text-anchor="middle" font-size="14" font-weight="bold" fill="#b3362c">內建</text>
+<text x="50" y="470" text-anchor="middle" font-size="11" fill="#8b94a3">晶片貼在</text>
+<text x="50" y="485" text-anchor="middle" font-size="11" fill="#8b94a3">模組裡</text>
+<!-- 1 外置雷射＋整合 PD -->
+<rect x="100" y="90" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="122" cy="114" r="11" fill="#1c1f26"/>
+<text x="122" y="118" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">1</text>
+<text x="140" y="119" font-size="13.5" font-weight="bold" fill="#1c1f26">外置雷射＋整合 PD</text>
+<text x="478" y="119" text-anchor="end" font-size="11.5" fill="#5d6675">例：阿里雲 3.2T 矽光版</text>
+<text x="122" y="146" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="122" y="152" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="134" y="174" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="134" y="220" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="198" y="178" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="241" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="241" y="215" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="182" y1="189" x2="198" y2="189" stroke="#5d6675" stroke-width="2"/>
+<rect x="204" y="224" width="44" height="22" rx="2" fill="#ffffff"/>
+<text x="226" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#0e6e8c">鍺 PD</text>
+<line x1="182" y1="235" x2="204" y2="235" stroke="#5d6675" stroke-width="2"/>
+<text x="294" y="180" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="284" y="186" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="362" y="192" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="422" y="146" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="422" y1="152" x2="422" y2="286" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="304" y1="200" x2="418" y2="200" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="200" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="304" y1="216" x2="418" y2="216" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="216" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M304,200 L418,200"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M418,216 L304,216"/></circle>
+<path d="M400,257 L330,257 L314,242 L284,242" fill="none" stroke="#c9483d" stroke-width="1.8"/>
+<rect x="400" y="240" width="74" height="34" rx="3" fill="#fbeeec" stroke="#b3362c" stroke-width="1.3"/>
+<text x="437" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8f2a22">ELSFP</text>
+<text x="437" y="268" text-anchor="middle" font-size="10.5" fill="#8f2a22">雷射模組</text>
+<text x="367" y="251" text-anchor="middle" font-size="11" fill="#8f2a22">保偏光纖</text>
+<circle r="2.8" fill="#c9483d"><animateMotion dur="2.2s" repeatCount="indefinite" path="M400,257 L330,257 L314,242 L284,242"/></circle>
+<text x="122" y="304" font-size="11.5" fill="#5d6675">接出的光纖：訊號＋光源　　雷射壞了：換面板上的 ELSFP</text>
+<!-- 2 外置雷射＋獨立 PD -->
+<rect x="500" y="90" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="522" cy="114" r="11" fill="#1c1f26"/>
+<text x="522" y="118" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">2</text>
+<text x="540" y="119" font-size="13.5" font-weight="bold" fill="#1c1f26">外置雷射＋獨立 PD</text>
+<text x="878" y="119" text-anchor="end" font-size="11.5" fill="#5d6675">高速、長距離設計</text>
+<text x="522" y="146" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="522" y="152" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="534" y="174" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="534" y="220" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="598" y="178" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="641" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="641" y="215" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="582" y1="189" x2="598" y2="189" stroke="#5d6675" stroke-width="2"/>
+<line x1="582" y1="235" x2="590" y2="235" stroke="#5d6675" stroke-width="2"/>
+<rect x="590" y="223" width="34" height="24" rx="2" fill="#7a5cb8" stroke="#ffffff" stroke-width="1.5"/>
+<text x="607" y="239" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">PD</text>
+<text x="694" y="180" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="684" y="186" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="762" y="192" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="822" y="146" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="822" y1="152" x2="822" y2="286" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="704" y1="200" x2="818" y2="200" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="200" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="704" y1="216" x2="818" y2="216" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="216" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M704,200 L818,200"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M818,216 L704,216"/></circle>
+<path d="M800,257 L730,257 L714,242 L684,242" fill="none" stroke="#c9483d" stroke-width="1.8"/>
+<rect x="800" y="240" width="74" height="34" rx="3" fill="#fbeeec" stroke="#b3362c" stroke-width="1.3"/>
+<text x="837" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#8f2a22">ELSFP</text>
+<text x="837" y="268" text-anchor="middle" font-size="10.5" fill="#8f2a22">雷射模組</text>
+<text x="767" y="251" text-anchor="middle" font-size="11" fill="#8f2a22">保偏光纖</text>
+<circle r="2.8" fill="#c9483d"><animateMotion dur="2.2s" repeatCount="indefinite" path="M800,257 L730,257 L714,242 L684,242"/></circle>
+<text x="522" y="304" font-size="11.5" fill="#5d6675">接出的光纖：訊號＋光源　　雷射壞了：換面板上的 ELSFP</text>
+<!-- 3 內建雷射＋整合 PD -->
+<rect x="100" y="330" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="122" cy="354" r="11" fill="#1c1f26"/>
+<text x="122" y="358" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">3</text>
+<text x="140" y="359" font-size="13.5" font-weight="bold" fill="#1c1f26">內建雷射＋整合 PD</text>
+<text x="478" y="359" text-anchor="end" font-size="11.5" fill="#5d6675">模組較大，雷射的熱在模組裡</text>
+<text x="122" y="386" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="122" y="392" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="134" y="414" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="433" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="134" y="460" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="158" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="198" y="418" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="241" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="241" y="455" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="182" y1="429" x2="198" y2="429" stroke="#5d6675" stroke-width="2"/>
+<rect x="204" y="464" width="44" height="22" rx="2" fill="#ffffff"/>
+<text x="226" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#0e6e8c">鍺 PD</text>
+<line x1="182" y1="475" x2="204" y2="475" stroke="#5d6675" stroke-width="2"/>
+<text x="294" y="420" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="284" y="426" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="362" y="432" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="422" y="386" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="422" y1="392" x2="422" y2="526" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="304" y1="440" x2="418" y2="440" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="440" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="304" y1="456" x2="418" y2="456" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="422" cy="456" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M304,440 L418,440"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M418,456 L304,456"/></circle>
+<rect x="212" y="398" width="58" height="18" rx="2" fill="#b3362c"/>
+<text x="241" y="411" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">雷射晶片</text>
+<circle r="2.4" fill="#ffd9a8"><animateMotion dur="1.2s" repeatCount="indefinite" path="M241,414 L241,430"/></circle>
+<rect x="400" y="480" width="74" height="34" rx="3" fill="none" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="437" y="501" text-anchor="middle" font-size="10.5" fill="#8b94a3">不用外置雷射</text>
+<text x="122" y="544" font-size="11.5" fill="#5d6675">接出的光纖：只有訊號　　雷射壞了：換整顆模組</text>
+<!-- 4 內建雷射＋獨立 PD -->
+<rect x="500" y="330" width="390" height="226" fill="#fcfbf8" stroke="#d3ccbc" stroke-width="1"/>
+<circle cx="522" cy="354" r="11" fill="#1c1f26"/>
+<text x="522" y="358" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">4</text>
+<text x="540" y="359" font-size="13.5" font-weight="bold" fill="#1c1f26">內建雷射＋獨立 PD</text>
+<text x="878" y="359" text-anchor="end" font-size="11.5" fill="#5d6675">晶片最多，較少見</text>
+<text x="522" y="386" font-size="11" fill="#8b94a3">光引擎模組的基板</text>
+<rect x="522" y="392" width="196" height="118" rx="3" fill="#efece3" stroke="#9d9483" stroke-width="1.2"/>
+<rect x="534" y="414" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="433" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Driver</text>
+<rect x="534" y="460" width="48" height="30" rx="2" fill="#1c1f26"/>
+<text x="558" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">TIA</text>
+<rect x="598" y="418" width="86" height="76" rx="2" fill="#0e6e8c"/>
+<text x="641" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">矽光晶片</text>
+<text x="641" y="455" text-anchor="middle" font-size="10.5" fill="#cfe6ee">調變器、波導</text>
+<line x1="582" y1="429" x2="598" y2="429" stroke="#5d6675" stroke-width="2"/>
+<line x1="582" y1="475" x2="590" y2="475" stroke="#5d6675" stroke-width="2"/>
+<rect x="590" y="463" width="34" height="24" rx="2" fill="#7a5cb8" stroke="#ffffff" stroke-width="1.5"/>
+<text x="607" y="479" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">PD</text>
+<text x="694" y="420" text-anchor="middle" font-size="10.5" fill="#0e6e8c">FAU</text>
+<rect x="684" y="426" width="20" height="44" fill="#dff0f5" stroke="#0e6e8c" stroke-width="1.2"/>
+<text x="762" y="432" text-anchor="middle" font-size="11" fill="#0e6e8c">訊號光纖（收、發）</text>
+<text x="822" y="386" text-anchor="middle" font-size="10.5" fill="#8b94a3">機箱面板</text>
+<line x1="822" y1="392" x2="822" y2="526" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="704" y1="440" x2="818" y2="440" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="440" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<line x1="704" y1="456" x2="818" y2="456" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle cx="822" cy="456" r="4" fill="#ffffff" stroke="#0e6e8c" stroke-width="1.6"/>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M704,440 L818,440"/></circle>
+<circle r="2.6" fill="#0e6e8c"><animateMotion dur="2s" repeatCount="indefinite" path="M818,456 L704,456"/></circle>
+<rect x="612" y="398" width="58" height="18" rx="2" fill="#b3362c"/>
+<text x="641" y="411" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">雷射晶片</text>
+<circle r="2.4" fill="#ffd9a8"><animateMotion dur="1.2s" repeatCount="indefinite" path="M641,414 L641,430"/></circle>
+<rect x="800" y="480" width="74" height="34" rx="3" fill="none" stroke="#d3ccbc" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="837" y="501" text-anchor="middle" font-size="10.5" fill="#8b94a3">不用外置雷射</text>
+<text x="522" y="544" font-size="11.5" fill="#5d6675">接出的光纖：只有訊號　　雷射壞了：換整顆模組</text>
+<rect x="100" y="571" width="12" height="12" fill="#0e6e8c"/>
+<text x="118" y="582" font-size="11.5" fill="#5d6675">光：矽光晶片、訊號光纖</text>
+<rect x="270" y="571" width="12" height="12" fill="#1c1f26"/>
+<text x="288" y="582" font-size="11.5" fill="#5d6675">電晶片</text>
+<rect x="348" y="571" width="12" height="12" fill="#b3362c"/>
+<text x="366" y="582" font-size="11.5" fill="#5d6675">雷射（外置時經保偏光纖送光）</text>
+<rect x="553" y="571" width="12" height="12" fill="#7a5cb8"/>
+<text x="571" y="582" font-size="11.5" fill="#5d6675">獨立 PD</text>
+<text x="890" y="582" text-anchor="end" font-size="11" fill="#8b94a3">示意圖，非實際比例與擺放位置</text>
+</svg>
+<!-- npo4-end -->
+  </div>
+  <table class="tbl full stack-m rv">
+    <thead><tr><th>做法</th><th>模組接出的光纖</th><th>模組裡多貼的晶片</th><th>雷射壞了</th><th>主要難題</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td data-label=""><span class="cv"><b>① 外置雷射＋整合 PD</b></span></td><td data-label="接出的光纖"><span class="cv">訊號＋光源</span></td><td data-label="多貼的晶片"><span class="cv">沒有<small>基準：矽光晶片配 Driver、TIA</small></span></td><td data-label="雷射壞了"><span class="cv">換面板上的 ELSFP</span></td><td data-label="主要難題"><span class="cv">分光、保偏光纖</span></td><td data-label="例子"><span class="cv">阿里雲 3.2T 矽光版<small>22.5 × 35.1 mm，兩顆 16 通道矽光晶片</small></span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>② 外置雷射＋獨立 PD</b></span></td><td data-label="接出的光纖"><span class="cv">訊號＋光源</span></td><td data-label="多貼的晶片"><span class="cv">PD</span></td><td data-label="雷射壞了"><span class="cv">換面板上的 ELSFP</span></td><td data-label="主要難題"><span class="cv">分光、保偏光纖，再加 PD 貼合良率</span></td><td data-label="例子"><span class="cv">高速、長距離的設計</span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>③ 內建雷射＋整合 PD</b></span></td><td data-label="接出的光纖"><span class="cv">只有訊號</span></td><td data-label="多貼的晶片"><span class="cv">雷射</span></td><td data-label="雷射壞了"><span class="cv">換整顆模組</span></td><td data-label="主要難題"><span class="cv">雷射散熱與壽命</span></td><td data-label="例子"><span class="cv">Open CPX 有內建雷射的模組規格<small>規定雷射放模組內，沒規定 PD 做法，③④ 都算</small></span></td></tr>
+      <tr><td data-label=""><span class="cv"><b>④ 內建雷射＋獨立 PD</b></span></td><td data-label="接出的光纖"><span class="cv">只有訊號</span></td><td data-label="多貼的晶片"><span class="cv">雷射、PD</span></td><td data-label="雷射壞了"><span class="cv">換整顆模組</span></td><td data-label="主要難題"><span class="cv">散熱加兩道貼合</span></td><td data-label="例子"><span class="cv">較少見</span></td></tr>
+    </tbody>
+  </table>
+  <div class="nums rv">
+    <div class="n"><div class="v">約 20<small> W</small></div><div class="k">阿里雲 3.2T NPO 模組的典型功耗；CIOE 展場的 NPO 規格卡，3.2T 標 23 W 以下、6.4T 標 28 W 以下</div></div>
+    <div class="n"><div class="v">15<small> dB</small></div><div class="k">Open CPX 規格給主機端電通道的損耗上限，NPO、CPO 都適用。對照：前面板可插拔約 32 dB</div></div>
+    <div class="n"><div class="v">17<small>／22 mm</small></div><div class="k">Open CPX 規格的模組寬度上限：外置雷射版 17 mm、內建雷射版 22 mm；長度分別是 36–50 mm、50–75 mm</div></div>
+  </div>
+  <p class="lede">不管選哪一種，難題都落在三個地方：光源、光纖接口、插座。</p>
+  <div class="walls rv">
+    <div class="wall"><span class="wn">①</span><b>光源</b><p>外置要解決分光損耗，內建要解決散熱與壽命。兩種都要高功率 CW 雷射，目前供給吃緊。</p></div>
+    <div class="wall"><span class="wn">②</span><b>FAU 與光纖接口</b><p>矽光晶片對光纖要次微米精度，是封裝良率最大的變數之一（第 04 章）。</p></div>
+    <div class="wall"><span class="wn">③</span><b>插座與主機板</b><p>可拔插靠插座，但壓接力、電路板翹曲、各埠驅動差異，都會在系統端出現。插座規格越標準，光引擎越容易被替換。</p></div>
+  </div>
+  <p class="fn cite">出處：Simple Tech Trend〈看懂 NPO 近封裝光學〉2026-11（四種做法的分類與例子）、〈Open CPX 1.0 拆解〉2026-09-18（Open CPX MSA 規格 Rev 1.0：主機端 Die-to-Socket 損耗 15 dB 以內，CPO、NPO 都適用；內建雷射模組規定雷射在模組內與外形尺寸，沒規定 PD 做法）、〈OCP Global Summit 2/6〉2026-10-23（Samtec 在 OCP 峰會的對照：前面板可插拔約 32 dB 降到 15 dB，沒寫頻率）、〈NPO 不是 CPO 的前菜〉2026-09-29（CIOE 展場規格卡，沒寫廠商、沒寫 PD 做法）；阿里雲基礎設施（半導體行業觀察 2026-03-01 轉載：模組尺寸、晶片數、功耗；發布稿沒寫光源位置，外置是 Simple Tech Trend 對模組圖的說明）。高功率 CW 雷射供給吃緊是〈看懂 NPO 近封裝光學〉的判斷，本章「反方觀點與風險」另有雷射缺到 2028 的說法。</p>
 
   <h3 class="sub">NPO 比 CPO 先放量</h3>
   <div class="nums rv">
